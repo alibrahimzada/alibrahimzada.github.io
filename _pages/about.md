@@ -11,7 +11,7 @@ profile:
     <br>
     <p>Address:</p>
     <p>Marmara University</p>
-    <p>Goztepe 34722, Kadikoy</p>
+    <p>Basibuyuk 34854, Maltepe</p>
     <p>Istanbul, Turkey</p>
 
 education: true
