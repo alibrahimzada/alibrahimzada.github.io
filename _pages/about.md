@@ -10,7 +10,7 @@ profile:
   address: >
     <br>
     <p>Address:</p>
-    <p>Thomas M. Siebel Center for Computer Science</p>
+    <p>Thomas M. Siebel Center</p>
     <p>201 North Goodwin Avenue</p>
     <p>Urbana, IL 61801</p>
     <p>United States</p>
