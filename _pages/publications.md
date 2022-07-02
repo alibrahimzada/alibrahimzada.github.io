@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 title: publications
 description: 
-years_pub: [2020]
+years_pub: [2020,2022]
 years_rev: [2021]
 nav: true
 ---
