@@ -8,7 +8,7 @@ middle_name:
 last_name: Ibrahimzada
 email: alirezai@illinois.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  The official webpage of Ali Reza Ibrahimzada, Department of Computer Engineering, Marmara University
+  The official webpage of Ali Reza Ibrahimzada, Department of Computer Science, University of Illinois Urbana-Champaign
 footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 

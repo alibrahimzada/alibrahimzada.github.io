@@ -26,4 +26,4 @@ I am a freshman CS PhD student in the <a href="https://cs.illinois.edu/" target=
 
 Previously, I was a member of <a href="https://www.itu.edu.tr/en/homepage" target="blank">Istanbul Technical University's</a> <a href="https://bioinformatics.itu.edu.tr/" target="blank">Bioinformatics and Databases Lab</a>, where I was mainly working with <a href="https://web.itu.edu.tr/alicakmak/" target="blank">Dr. Ali Cakmak</a> in different domains (i.e., bioinformatics, databases, machine learning). Moreover, I graduated from the <a href="http://cse.eng.marmara.edu.tr/en" target="blank">Department of Computer Engineering</a> at <a href="https://www.marmara.edu.tr/en" target="blank">Marmara University</a>, Istanbul, Turkey.
 
-<a style="background-color: #4CAF50; font-size: 15px; color: white;" class="btn line-btn-dark btn-icon btn-radius" href="/assets/pdf/cv.pdf" target="blank">CV</a>
+<a style="background-color: #4CAF50; font-size: 15px; color: white;" class="btn line-btn-dark btn-icon btn-radius" href="/assets/pdf/CV.pdf" target="blank">CV</a>
