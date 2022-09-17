@@ -2,14 +2,22 @@
 ---
 
 <div class="row">
-  <div class="col-sm-2 abbr">
+  <div style="margin-bottom: 25px;" class="col-sm-2 abbr">
+  <center>
   {% if entry.abbr %}
-    {% if site.data.venues[entry.abbr] %}
-    <abbr class="badge"><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
-    {% else %}
-    <abbr class="badge">{{entry.abbr}}</abbr>
-    {% endif %}
+      {% if site.data.venues[entry.abbr] %}
+      <abbr style="width: 100px; height: 25px; font-size: large;" class="badge"><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
+      {% else %}
+      <abbr style="width: 100px; height: 25px; font-size: large;" class="badge">{{entry.abbr}}</abbr>  
+      {% endif %}
   {% endif %}
+  {% if entry.badge_avail %}
+    <img src="https://www.acm.org/binaries/content/gallery/acm/publications/artifact-review-v1_1-badges/artifacts_available_v1_1.png" alt="ACM Artifacts Available v1.1" width="60" height="60"/>
+  {% endif %}
+  {% if entry.badge_func %}
+    <img src="https://www.acm.org/binaries/content/gallery/acm/publications/artifact-review-v1_1-badges/artifacts_evaluated_functional_v1_1.png" alt="ACM Artifacts Evaluated - Functional v1.1" width="60" height="60"/>
+  {% endif %}
+  </center>
   </div>
 
   <div id="{{entry.key}}" class="col-sm-8">
@@ -73,12 +81,12 @@
       {% elsif entry.type == "inproceedings" %}
         <em>In {{entry.booktitle}}</em>
       {% endif %}
-      {% if entry.month %}
+      <!-- {% if entry.month %}
         {{entry.month | capitalize}}
-      {% endif %}
-      {% if entry.year %}
+      {% endif %} -->
+      <!-- {% if entry.year %}
         {{entry.year}}
-      {% endif %}
+      {% endif %} -->
       </div>
     {% endif %}
 
@@ -93,7 +101,7 @@
         <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
     {% endif %}
     {% if entry.html %}
-      <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
+      <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
     {% endif %}
     {% if entry.pdf %}
       {% if entry.pdf contains '://' %}

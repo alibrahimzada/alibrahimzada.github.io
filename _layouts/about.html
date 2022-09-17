@@ -16,6 +16,7 @@ layout: default
     <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
       {% if page.profile.image %}
         <img class="img-fluid z-depth-1 rounded" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
+        <a style="display: block; margin-top: 10px; background-color: #4CAF50; font-size: 15px; color: white;" class="btn line-btn-dark btn-icon btn-radius" href="/assets/pdf/cv.pdf" target="blank">CV</a>
       {% endif %}
       {% if page.profile.address %}
         <div class="address">
