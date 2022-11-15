@@ -93,11 +93,11 @@ disqus_shortname: al-folio # put your disqus shortname
 # -----------------------------------------------------------------------------
 
 collections:
-  education:
+  talks:
     defaults:
       layout: post
     output: true
-    permalink: /education/:path/
+    permalink: /talks/:path/
   experience:
     defaults:
       layout: post
@@ -116,7 +116,7 @@ collections:
     permalink: /teaching/:path/
 
 news_limit: 5
-education_limit: 5
+talks_limit: 5
 experience_limit: 5
 
 # -----------------------------------------------------------------------------

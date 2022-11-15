@@ -30,10 +30,6 @@ layout: default
       {{ content }}
     </div>
 
-    {% if page.education %}
-      {% include education.html %}
-    {% endif %}
-
     {% if page.experience %}
       {% include experience.html %}
     {% endif %}
@@ -42,10 +38,14 @@ layout: default
       {% include news.html %}
     {% endif %}
 
+    {% if page.talks %}
+      {% include talks.html %}
+    {% endif %}
+    
     {% if page.selected_papers %}
       {% include selected_papers.html %}
     {% endif %}
-
+    
     {% if page.social %}
     <div class="social">
       <div class="contact-icons">
