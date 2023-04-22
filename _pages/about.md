@@ -11,11 +11,12 @@ profile:
 
 talks: true
 experience: false
+internships: true
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a CS PhD student in the <a href="https://cs.illinois.edu/" target="blank">Department of Computer Science</a> at the <a href="https://illinois.edu/" target="blank">University of Illinois Urbana-Champaign</a>, IL, United States. My research interests include Software Engineering, Program Analysis, Software Testing, Natural Language Processing, and Deep Learning. I am also a member of the <a href="https://reyhaneh.cs.illinois.edu/lab.htm" target="blank">Intelligent CAT Lab</a> advised by <a href="https://reyhaneh.cs.illinois.edu/" target="blank">Dr. Reyhaneh Jabbarvand</a> since Fall 2022.
+I am a CS PhD student in the <a href="https://cs.illinois.edu/" target="blank">Department of Computer Science</a> at the <a href="https://illinois.edu/" target="blank">University of Illinois Urbana-Champaign</a>, IL, United States. My research interests include LLMs for Code, Software Testing, Program Analysis, Model Interpretation, and Deep Learning. Moreover, I am a member of the <a href="https://reyhaneh.cs.illinois.edu/lab.htm" target="blank">Intelligent CAT Lab</a> advised by <a href="https://reyhaneh.cs.illinois.edu/" target="blank">Prof. Reyhaneh Jabbarvand</a> since Fall 2022.
 
-Previously, I was a member of <a href="https://www.itu.edu.tr/en/homepage" target="blank">Istanbul Technical University's</a> <a href="https://bioinformatics.itu.edu.tr/" target="blank">Bioinformatics and Databases Lab</a>, where I was mainly working with <a href="https://web.itu.edu.tr/alicakmak/" target="blank">Dr. Ali Cakmak</a> in different domains (i.e., bioinformatics, databases, machine learning). Moreover, I graduated from the <a href="http://cse.eng.marmara.edu.tr/en" target="blank">Department of Computer Engineering</a> at <a href="https://www.marmara.edu.tr/en" target="blank">Marmara University</a>, Istanbul, Turkey.
+I will be a Visiting Researcher at [IBM Research](https://www.research.ibm.com/) - IBM T.J. Watson Research Center, Yorktown Heights, NY, United States in Summer 2023. I will be working on applications of LLMs for Code in the [PLSE](https://researcher.watson.ibm.com/researcher/view_group.php?id=3) group.

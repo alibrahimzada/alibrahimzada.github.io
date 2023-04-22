@@ -10,7 +10,6 @@ email: alirezai@illinois.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   The official webpage of Ali Reza Ibrahimzada, Department of Computer Science, University of Illinois Urbana-Champaign
 footer_text: >
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 
 icon: # the emoji used as the favicon
 url: https://alibrahimzada.github.io # the base hostname & protocol for your site
@@ -93,6 +92,11 @@ disqus_shortname: al-folio # put your disqus shortname
 # -----------------------------------------------------------------------------
 
 collections:
+  internships:
+    defaults:
+      layout: post
+    output: true
+    permalink: /internships/:path/
   talks:
     defaults:
       layout: post
@@ -117,6 +121,7 @@ collections:
 
 news_limit: 5
 talks_limit: 5
+internships_limit: 5
 experience_limit: 5
 
 # -----------------------------------------------------------------------------

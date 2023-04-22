@@ -1,0 +1,14 @@
+<div class="internships">
+    <h2>internships</h2>
+    {% if site.internships  %}
+      {% assign internships = site.internships | reverse %}
+      {% for item in internships limit: site.internships_limit %}
+        <b> {{ item.title }} </b> <img src="/assets/img/{{ item.logo }}" style="width: 40px; height: 16px;">
+        <br>
+        {{ item.location }} <span style="float:right;">{{ item.datetime }}</span>
+        <br><br>
+       {% endfor %}
+    {% else %}
+      <p>No data so far...</p>
+    {% endif %}
+  </div>

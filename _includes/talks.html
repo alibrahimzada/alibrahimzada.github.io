@@ -3,12 +3,9 @@
     {% if site.talks  %}
       {% assign talks = site.talks | reverse %}
       {% for item in talks limit: site.talks_limit %}
-        <b> {{ item.title }} </b>
-        <ul> 
-          <li>
-            {{ item.location }} <span style="float:right;">{{ item.datetime }}</span>
-          </li> 
-        </ul> 
+        <b>{{ item.title }}</b><a href="{{ item.link }}" target="_blank"><img src="/assets/img/youtube.png" width="40px" height="30px"/></a>
+        <br>
+        {{ item.location }} <span style="float:right;">{{ item.datetime }}</span>
       {% endfor %}
     {% else %}
       <p>No data so far...</p>
