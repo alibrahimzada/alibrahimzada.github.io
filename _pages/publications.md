@@ -11,7 +11,7 @@ nav: true
 <div class="publications">
 
 {% for y in page.years_pub %}
-  <h2 class="year">{{y}}</h2>
+  <h2 class="year" style="width:110%;">{{y}}</h2>
   {% bibliography -f papers -q @*[year={{y}}]* %}
 {% endfor %}
 
@@ -20,7 +20,7 @@ nav: true
 <div class="publications">
 <h2>manuscripts under review</h2>
 {% for y in page.years_rev %}
-  <h2 class="year">{{y}}</h2>
+  <h2 class="year" style="width:110%;">{{y}}</h2>
   {% bibliography -f papers_revision -q @*[year={{y}}]* %}
 {% endfor %}
 
