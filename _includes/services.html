@@ -1,0 +1,12 @@
+<div class="services">
+    <h2>academic services</h2>
+    {% if site.services  %}
+      {% assign services = site.services | reverse %}
+      {% for item in services limit: site.services_limit %}
+        <b> {{ item.title }}: {{ item.conf }} </b>
+        <br>
+       {% endfor %}
+    {% else %}
+      <p>No data so far...</p>
+    {% endif %}
+  </div>

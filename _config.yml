@@ -92,6 +92,11 @@ disqus_shortname: al-folio # put your disqus shortname
 # -----------------------------------------------------------------------------
 
 collections:
+  services:
+    defaults:
+      layout: post
+    output: true
+    permalink: /services/:path/
   internships:
     defaults:
       layout: post
@@ -122,6 +127,7 @@ collections:
 news_limit: 5
 talks_limit: 5
 internships_limit: 5
+services_limit: 5
 experience_limit: 5
 
 # -----------------------------------------------------------------------------
