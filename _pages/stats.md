@@ -23,13 +23,23 @@ nav: true
       font-weight: bold;
     }
     
-    .circles-container {
+    /* .circles-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       margin-top: 20px;
-    }
+    } */
 
+.circles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px; /* Limit width to prevent overflow */
+    margin-left: auto;
+    margin-right: auto;
+  }
     .circle-container {
       position: relative;
       width: 50px;
@@ -92,12 +102,12 @@ nav: true
     var circlesContainer = document.getElementById('circlesContainer');
     circlesContainer.innerHTML = ''; // Clear existing circles
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 8; i++) {
       var rowContainer = document.createElement('div');
       rowContainer.style.display = 'flex';
       rowContainer.style.marginBottom = '10px';
 
-      for (var j = 0; j < 25; j++) {
+      for (var j = 0; j < 15; j++) {
         var circleContainer = document.createElement('div');
         circleContainer.classList.add('circle-container');
 
@@ -107,11 +117,11 @@ nav: true
         var circleFill = document.createElement('div');
         circleFill.classList.add('circle-fill');
 
-        if (i * 25 + j === Math.floor(ageInYears)) {
+        if (i * 15 + j === Math.floor(ageInYears)) {
           circleFill.style.backgroundColor = 'red';
           circleProgress.style.backgroundColor = 'red';
 
-        } else if (i * 25 + j < Math.floor(ageInYears)) {
+        } else if (i * 15 + j < Math.floor(ageInYears)) {
           circleFill.style.transform = 'rotate(360deg)';
         } else {
           circleFill.style.backgroundColor = 'gray';
@@ -121,7 +131,7 @@ nav: true
 
         var circleAge = document.createElement('div');
         circleAge.classList.add('circle-age');
-        circleAge.textContent = (i * 25 + j) < Math.floor(ageInYears) ? '🎂' : '';
+        circleAge.textContent = (i * 15 + j) < Math.floor(ageInYears) ? '🎂' : '';
 
         circleContainer.appendChild(circleProgress);
         circleContainer.appendChild(circleFill);
