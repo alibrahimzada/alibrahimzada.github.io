@@ -1,6 +1,20 @@
 ---
 ---
 
+@article{ibrahimzada2024thesis,
+	title = {Bridging the Gap between Testing and Debugging through Explainable Deep Oracles},
+	abstract = {Automation of test oracles is one of the most challenging facets of software testing, but remains comparatively less addressed compared to automated test input generation. Test oracles rely on a ground-truth that can distinguish between the correct and buggy behavior to determine whether a test fails (detects a bug) or passes. What makes the oracle problem challenging and undecidable is the assumption that the ground-truth should know the exact expected, correct or buggy behavior. However, we argue that one can still build an accurate oracle without knowing the exact correct or buggy behavior, but how these two might differ. This paper presents SEER, a Deep Learning-based approach that in the absence of test assertions or other types of oracle, can automatically determine whether a unit test passes or fails on a given method under test (MUT). To build the ground-truth, SEER jointly embeds unit tests and the implementation of MUTs into a unified vector space, in such a way that the neural representation of tests are similar to that of MUTs they pass on them, but dissimilar to MUTs they fail on them. The classifier built on top of this vector representation serves as the oracle to generate “fail” labels, when test inputs detect a bug in MUT or “pass” labels, otherwise. Our extensive experiments on applying SEER to more than 5K unit tests from a diverse set of opensource Java projects show that the produced oracle is (1) effective in predicting the fail or pass labels, achieving an overall accuracy, precision, recall, and F1 measure of 93%, 86%, 94%, and 90%, (2) generalizable, predicting the labels for the unit test of projects that were not in training or validation set with negligible performance drop, and (3) efficient, detecting the existence of bugs in only 6.5 milliseconds on average. Moreover, by interpreting the neural model and looking at it beyond a closed-box solution, we confirm that the oracle is valid, i.e., it predicts the labels through learning relevant features.},
+	journal = {MS Thesis, University of Illinois Urbana-Champaign},
+	author = {Ibrahimzada, Ali Reza},
+	month = dec,
+	year = {2024},
+	abbr = {THESIS},
+	code = {https://github.com/Intelligent-CAT-Lab/SEER},
+	video = {https://www.youtube.com/watch?v=k9060RSH0hg},
+	pdf = {thesis.pdf},
+	slides = {https://uofi.box.com/s/qxsskoer8iil0c47aptxg478h0s0jhz5},
+}
+
 @article{ibrahimzada2024alphatrans,
   title={Repository-Level Compositional Code Translation and Validation},
   author={Ibrahimzada, Ali Reza and Ke, Kaiyao and Pawagi, Mrigank and Abid, Muhammad Salman and Pan, Rangeet and Sinha, Saurabh and Jabbarvand, Reyhaneh},
