@@ -3,10 +3,18 @@
     {% if site.internships  %}
       {% assign internships = site.internships | reverse %}
       {% for item in internships limit: site.internships_limit %}
-        <b> {{ item.title }} </b> <img src="/assets/img/{{ item.logo }}" style="width: 40px; height: 16px;">
-        <br>
-        {{ item.location }} <span style="float:right;">{{ item.datetime }}</span>
-        <br><br>
+        {% if item.logo == "ibm.png" %}
+          <b> {{ item.title }} </b> &nbsp; <img src="/assets/img/{{ item.logo }}" style="width: 40px; height: 16px;">
+          <br>
+          {{ item.location }} <span style="float:right;">{{ item.datetime }}</span>
+          <br><br>
+        {% endif %}
+        {% if item.logo == "aws.png" %}
+          <b> {{ item.title }} </b> &nbsp; <img src="/assets/img/{{ item.logo }}" style="width: 40px; height: 25px;">
+          <br>
+          {{ item.location }} <span style="float:right;">{{ item.datetime }}</span>
+          <br><br>  
+        {% endif %}
        {% endfor %}
     {% else %}
       <p>No data so far...</p>
