@@ -30,7 +30,7 @@ jobs:
     - name: Install deps
       run: |
         gem install rubygems-update -v 3.4.10
-        update_rubygems
+        gem --version
         gem install bundler
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
