@@ -32,6 +32,7 @@ jobs:
         gem install rubygems-update -v 3.4.10
         gem --version
         gem install bundler
+        rm -rf ~/.gem
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
         npm install -g mermaid.cli
