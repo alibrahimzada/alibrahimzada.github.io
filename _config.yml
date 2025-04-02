@@ -124,11 +124,11 @@ collections:
     output: true
     permalink: /teaching/:path/
 
-news_limit: 5
-talks_limit: 5
-internships_limit: 5
-services_limit: 5
-experience_limit: 5
+news_limit: 10
+talks_limit: 10
+internships_limit: 10
+services_limit: 10
+experience_limit: 10
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
