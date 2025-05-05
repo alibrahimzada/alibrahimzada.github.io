@@ -6,7 +6,7 @@ permalink: /
 
 profile:
   align: right
-  image: ali2.png
+  image: ali3.png
   address: >
 
 talks: true
