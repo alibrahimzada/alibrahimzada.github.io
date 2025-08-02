@@ -1,26 +1,11 @@
 ---
 ---
 
-@article{ibrahimzada2024thesis,
-	title = {Bridging the Gap between Testing and Debugging through Explainable Deep Oracles},
-	abstract = {Automation of test oracles is one of the most challenging facets of software testing, but remains comparatively less addressed compared to automated test input generation. Test oracles rely on a ground-truth that can distinguish between the correct and buggy behavior to determine whether a test fails (detects a bug) or passes. What makes the oracle problem challenging and undecidable is the assumption that the ground-truth should know the exact expected, correct or buggy behavior. However, we argue that one can still build an accurate oracle without knowing the exact correct or buggy behavior, but how these two might differ. This paper presents SEER, a Deep Learning-based approach that in the absence of test assertions or other types of oracle, can automatically determine whether a unit test passes or fails on a given method under test (MUT). To build the ground-truth, SEER jointly embeds unit tests and the implementation of MUTs into a unified vector space, in such a way that the neural representation of tests are similar to that of MUTs they pass on them, but dissimilar to MUTs they fail on them. The classifier built on top of this vector representation serves as the oracle to generate “fail” labels, when test inputs detect a bug in MUT or “pass” labels, otherwise. Our extensive experiments on applying SEER to more than 5K unit tests from a diverse set of opensource Java projects show that the produced oracle is (1) effective in predicting the fail or pass labels, achieving an overall accuracy, precision, recall, and F1 measure of 93%, 86%, 94%, and 90%, (2) generalizable, predicting the labels for the unit test of projects that were not in training or validation set with negligible performance drop, and (3) efficient, detecting the existence of bugs in only 6.5 milliseconds on average. Moreover, by interpreting the neural model and looking at it beyond a closed-box solution, we confirm that the oracle is valid, i.e., it predicts the labels through learning relevant features.},
-	journal = {MS Thesis, University of Illinois Urbana-Champaign},
-	author = {Ibrahimzada, Ali Reza},
-	month = dec,
-	year = {2024},
-	abbr = {MS THESIS},
-	code = {https://github.com/Intelligent-CAT-Lab/SEER},
-	video = {https://www.youtube.com/watch?v=k9060RSH0hg},
-	html = {https://www.ideals.illinois.edu/items/134259},
-	pdf = {thesis.pdf},
-	slides = {https://uofi.box.com/s/qxsskoer8iil0c47aptxg478h0s0jhz5},
-}
-
 @article{ibrahimzada2024alphatrans,
   title={AlphaTrans: A Neuro-Symbolic Compositional Approach for Repository-Level Code Translation and Validation},
   author={Ibrahimzada, Ali Reza and Ke, Kaiyao and Pawagi, Mrigank and Abid, Muhammad Salman and Pan, Rangeet and Sinha, Saurabh and Jabbarvand, Reyhaneh},
   abstract={Code translation transforms programs from one programming language (PL) to another. One prominent use case is application modernization to enhance maintainability and reliability. Several rule-based transpilers have been designed to automate code translation between different pairs of PLs. However, the rules can become obsolete as the PLs evolve and cannot generalize to other PLs. Recent studies have explored the automation of code translation using Large Language Models (LLMs). One key observation is that such techniques may work well for crafted benchmarks but fail to generalize to the scale and complexity of real-world projects with inter- and intra-class dependencies, custom types, PL-specific features, etc. We propose AlphaTrans, a neuro-symbolic approach to automate repository-level code translation. AlphaTrans translates both source and test code, and employs multiple levels of validation to ensure the translation preserves the functionality of the source program. To break down the problem for LLMs, AlphaTrans leverages program analysis to decompose the program into fragments and translates them in the reverse call order. We leveraged AlphaTrans to translate ten real-world open-source projects consisting of ⟨836, 8575, 2719⟩ (application and test) classes, (application and test) methods, and unit tests. AlphaTrans breaks down these projects into 17874 fragments and translates the entire repository. 96.40% of the translated fragments are syntactically correct, and AlphaTrans validates the translations' runtime behavior and functional correctness for 27.03% and 25.14% of the application method fragments. On average, integrated translation and validation takes 34 hours (min=3, max=121) to translate a project, showing its scalability in practice. For the syntactically or semantically incorrect translations, AlphaTrans generates a report including existing translation, stack trace, test errors, or assertion failures. We provided these artifacts to two developers to fix the translation bugs in four projects. They fixed the issues in 20.1 hours on average (5.5 hours for the smallest and 34 hours for the largest project) and achieved all passing tests. Without AlphaTrans, translating and validating such big projects could take weeks, if not months.},
-  journal={In Proceedings of ACM Software Engineering 2, FSE, Article FSE109, June 23-27, 2025, Trondheim, Norway},
+  journal={In Proceedings of the ACM Conference on Foundations of Software Engineering (FSE'25), June 23-27, 2025, Trondheim, Norway},
   selected = {true},
   abbr = {FSE'25},
   month = jun,
@@ -33,54 +18,10 @@
   pdf = {alphatrans.pdf},
 }
 
-@article{liu2024codemind,
-  title={CodeMind: A Framework to Challenge Large Language Models for Code Reasoning},
-  author={Liu, Changshu and Zhang, Shizhuo Dylan and Ibrahimzada, Ali Reza and Jabbarvand, Reyhaneh},
-  abstract={Solely relying on test passing to evaluate Large Language Models (LLMs) for code synthesis may result in unfair assessment or promoting models with data leakage. As an alternative, we introduce CodeMind, a framework designed to gauge the code reasoning abilities of LLMs. CodeMind currently supports three code reasoning tasks: Independent Execution Reasoning (IER), Dependent Execution Reasoning (DER), and Specification Reasoning (SR). The first two evaluate models to predict the execution output of an arbitrary code or code the model could correctly synthesize. The third one evaluates the extent to which LLMs implement the specified expected behavior. Our extensive evaluation of nine LLMs across five benchmarks in two different programming languages using CodeMind shows that LLMs fairly follow control flow constructs and, in general, explain how inputs evolve to output, specifically for simple programs and the ones they can correctly synthesize. However, their performance drops for code with higher complexity, non-trivial logical and arithmetic operators, non-primitive types, and API calls. Furthermore, we observe that, while correlated, specification reasoning (essential for code synthesis) does not imply execution reasoning (essential for broader programming tasks such as testing and debugging): ranking LLMs based on test passing can be different compared to code reasoning.},
-  journal={arXiv preprint arXiv:2402.09664},
-  selected = {true},
-  abbr = {pre-print},
-  month = april,
-  year={2024},
-  code={https://github.com/Intelligent-CAT-Lab/CodeMind},
-  arxiv = {2402.09664v4},
-  pdf = {codemind.pdf},
-}
-
-@article{ibrahimzada2024program,
-	title = {Program Decomposition and Translation with Static Analysis},
-	abstract = {The rising popularity of Large Language Models (LLMs) has motivated exploring their use in code-related tasks. Code LLMs with more than millions of parameters are trained on a massive amount of code in different Programming Languages (PLs). Such models are used for automating various Software Engineering (SE) tasks using prompt engineering. However, given the very large size of industry-scale project files, a major issue of these LLMs is their limited context window size, motivating the question of "Can these LLMs process very large files and can we effectively perform prompt engineering?". Code translation aims to convert source code from one PL to another. In this work, we assess the effect of method-level program decomposition on context window of LLMs and investigate how this approach can enable translation of very large files which originally could not be done due to out-of-context issue. Our observations from 20 well-known java projects and approximately 60K methods suggest that method-level program decomposition significantly improves the limited context window problem of LLMs by 99.5%. Furthermore, our empirical analysis indicate that with method-level decomposition, each input fragment on average only consumes 5% of the context window, leaving more context space for prompt engineering and the output. Finally, we investigate the effectiveness of a Call Graph (CG) approach for translating very large files when doing method-level program decomposition.},
-	journal = {In Proceedings of 46th IEEE/ACM International Conference on Software Engineering Companion (ICSE ’24 Companion), April 14-20, 2024, Lisbon, Portugal},
-	author = {Ibrahimzada, Ali Reza},
-	month = april,
-	year = {2024},
-	selected = {true},
-	abbr = {ICSE'24 SRC},
-	arxiv = {2401.12412},
-	poster = {icse24_poster.pdf},
-	slides = {https://uofi.box.com/s/vvcutgu0ot10qe0xprmh5mgm7lzv0kzs},
-	html = {https://doi.org/10.1145/3639478.3641226},
-	pdf = {decomposition.pdf},
-	award = {Ranked 3rd in IEEE/ACM Student Research Competition at ICSE'24},
-}
-
-@article{ibrahimzada2023automated,
-      title={Automated Bug Generation in the era of Large Language Models},
-	  abstract = {Bugs are essential in software engineering; many research studies in the past decades have been proposed to detect, localize, and repair bugs in software systems. Effectiveness evaluation of such techniques requires complex bugs, i.e., those that are hard to detect through testing and hard to repair through debugging. From the classic software engineering point of view, a hard-to-repair bug differs from the correct code in multiple locations, making it hard to localize and repair. Hard-to-detect bugs, on the other hand, manifest themselves under specific test inputs and reachability conditions. These two objectives, i.e., generating hard-to-detect and hard-to-repair bugs, are mostly aligned; a bug generation technique can change multiple statements to be covered only under a specific set of inputs. However, these two objectives are conflicting for learning-based techniques: A bug should have a similar code representation to the correct code in the training data to challenge a bug prediction model to distinguish them. The hard-to-repair bug definition remains the same but with a caveat: the more a bug differs from the original code (at multiple locations), the more distant their representations are and easier to be detected. We propose BugFarm, to transform arbitrary code into multiple complex bugs. BugFarm leverages Large Language Models (LLMs) to mutate code in multiple locations (hard-to-repair). To ensure that multiple modifications do not notably change the code representation, BugFarm analyzes the attention of the underlying model and instructs LLMs to only change the least attended locations (hard-to-detect). Our comprehensive evaluation of 320K+ bugs from over 2.5M mutants generated by BugFarm and two alternative approaches demonstrates our superiority in generating bugs that are hard to detect by learning-based bug prediction approaches (up to 41% higher False Negative Rate and 11%, 6%, 29%, and 21% lower Accuracy, Precision, Recall, and F1 score) and hard to repair by state-of-the-art learning-based program repair technique (22% repair success rate compared to 34% and 49% of LEAM and 𝜇BERT bugs). BugFarm is efficient, i.e., it takes nine seconds for it to mutate a code without any prior training time.}, 
-      author={Ali Reza Ibrahimzada and Yang Chen and Ryan Rong and Reyhaneh Jabbarvand},
-      year={2023},
-	  month= oct,
-	  selected = {true},
-	  abbr = {pre-print},
-	  pdf = {bugfarm.pdf},
-	  arxiv = {2310.02407},
- 	  journal = {arxiv preprint arXiv:2310.02407},
-}
-
 @article{pan2024lost,
 	title = {Lost in Translation: A Study of Bugs Introduced by Large Language Models while Translating Code},
 	abstract = {Code translation aims to convert source code from one programming language (PL) to another. Given the promising abilities of large language models (LLMs) in code synthesis, researchers are exploring their potential to automate code translation. The prerequisite for advancing the state of LLM-based code translation is to understand their promises and limitations over existing techniques. To that end, we present a large-scale empirical study to investigate the ability of general LLMs and code LLMs for code translation across pairs of different languages, including C, C++, Go, Java, and Python. Our study, which involves the translation of 1,700 code samples from three benchmarks and two real-world projects, reveals that LLMs are yet to be reliably used to automate code translation---with correct translations ranging from 2.1% to 47.3% for the studied LLMs. Further manual investigation of unsuccessful translations identifies 15 categories of translation bugs. We also compare LLM-based code translation with traditional non-LLM-based approaches. Our analysis shows that these two classes of techniques have their own strengths and weaknesses. Finally, insights from our study suggest that providing more context to LLMs during translation can help them produce better results. To that end, we propose a prompt-crafting approach based on the symptoms of erroneous translations; this improves the performance of LLM-based code translation by 5.5% on average. Our study is the first of its kind, in terms of scale and breadth, that provides insights into the current limitations of LLMs in code translation and opportunities for improving them. Our dataset---consisting of 1,700 code samples in five PLs with 10K+ tests, 43K+ translated code, 1,725 manually labeled bugs, and 1,365 bug-fix pairs---can help drive research in this area.},
-	journal = {In Proceedings of 46th IEEE/ACM International Conference on Software Engineering (ICSE ’24), April 14-20, 2024, Lisbon, Portugal},
+	journal = {In Proceedings of the 46th IEEE/ACM International Conference on Software Engineering (ICSE ’24), April 14-20, 2024, Lisbon, Portugal},
 	author = {Pan*, Rangeet and Ibrahimzada*, Ali Reza and Krishna, Rahul and Sankar, Divya and Wassi, Lambert Pouguem and Merler, Michele and Sobolev, Boris and Pavuluri, Raju and Sinha, Saurabh and Jabbarvand, Reyhaneh},
 	month = april,
 	year = {2024},
@@ -94,6 +35,24 @@
 	pdf = {plempirical.pdf},
 	slides = {https://uofi.box.com/s/x35hq921p5ct41fcvsr3jgq31osqzkrk},
 	arxiv = {2308.03109}
+}
+
+
+@article{ibrahimzada2024program,
+	title = {Program Decomposition and Translation with Static Analysis},
+	abstract = {The rising popularity of Large Language Models (LLMs) has motivated exploring their use in code-related tasks. Code LLMs with more than millions of parameters are trained on a massive amount of code in different Programming Languages (PLs). Such models are used for automating various Software Engineering (SE) tasks using prompt engineering. However, given the very large size of industry-scale project files, a major issue of these LLMs is their limited context window size, motivating the question of "Can these LLMs process very large files and can we effectively perform prompt engineering?". Code translation aims to convert source code from one PL to another. In this work, we assess the effect of method-level program decomposition on context window of LLMs and investigate how this approach can enable translation of very large files which originally could not be done due to out-of-context issue. Our observations from 20 well-known java projects and approximately 60K methods suggest that method-level program decomposition significantly improves the limited context window problem of LLMs by 99.5%. Furthermore, our empirical analysis indicate that with method-level decomposition, each input fragment on average only consumes 5% of the context window, leaving more context space for prompt engineering and the output. Finally, we investigate the effectiveness of a Call Graph (CG) approach for translating very large files when doing method-level program decomposition.},
+	journal = {In Proceedings of the 46th IEEE/ACM International Conference on Software Engineering Companion (ICSE ’24 Companion), April 14-20, 2024, Lisbon, Portugal},
+	author = {Ibrahimzada, Ali Reza},
+	month = april,
+	year = {2024},
+	selected = {true},
+	abbr = {ICSE'24 SRC},
+	arxiv = {2401.12412},
+	poster = {icse24_poster.pdf},
+	slides = {https://uofi.box.com/s/vvcutgu0ot10qe0xprmh5mgm7lzv0kzs},
+	html = {https://doi.org/10.1145/3639478.3641226},
+	pdf = {decomposition.pdf},
+	award = {Ranked 3rd in IEEE/ACM Student Research Competition at ICSE'24},
 }
 
 @article{ibrahimzada2022perfect,
@@ -113,6 +72,35 @@
 	pdf = {seer.pdf},
 	slides = {https://uofi.box.com/s/qxsskoer8iil0c47aptxg478h0s0jhz5},
 	arxiv = {2302.01488}
+}
+
+@article{ibrahimzada2023automated,
+      title={Challenging Bug Prediction and Repair Models with Synthetic Bugs},
+	  abstract = {Bugs are essential in software engineering; many research studies in the past decades have been proposed to detect, localize, and repair bugs in software systems. Effectiveness evaluation of such techniques requires complex bugs, i.e., those that are hard to detect through testing and hard to repair through debugging. From the classic software engineering point of view, a hard-to-repair bug differs from the correct code in multiple locations, making it hard to localize and repair. Hard-to-detect bugs, on the other hand, manifest themselves under specific test inputs and reachability conditions. These two objectives, i.e., generating hard-to-detect and hard-to-repair bugs, are mostly aligned; a bug generation technique can change multiple statements to be covered only under a specific set of inputs. However, these two objectives are conflicting for learning-based techniques: A bug should have a similar code representation to the correct code in the training data to challenge a bug prediction model to distinguish them. The hard-to-repair bug definition remains the same but with a caveat: the more a bug differs from the original code (at multiple locations), the more distant their representations are and easier to be detected. We propose BugFarm, to transform arbitrary code into multiple complex bugs. BugFarm leverages Large Language Models (LLMs) to mutate code in multiple locations (hard-to-repair). To ensure that multiple modifications do not notably change the code representation, BugFarm analyzes the attention of the underlying model and instructs LLMs to only change the least attended locations (hard-to-detect). Our comprehensive evaluation of 320K+ bugs from over 2.5M mutants generated by BugFarm and two alternative approaches demonstrates our superiority in generating bugs that are hard to detect by learning-based bug prediction approaches (up to 41% higher False Negative Rate and 11%, 6%, 29%, and 21% lower Accuracy, Precision, Recall, and F1 score) and hard to repair by state-of-the-art learning-based program repair technique (22% repair success rate compared to 34% and 49% of LEAM and 𝜇BERT bugs). BugFarm is efficient, i.e., it takes nine seconds for it to mutate a code without any prior training time.}, 
+      author={Ali Reza Ibrahimzada and Yang Chen and Ryan Rong and Reyhaneh Jabbarvand},
+      year={2025},
+	  month= sep,
+	  selected = {true},
+	  abbr = {SCAM'25},
+	  pdf = {bugfarm.pdf},
+	  arxiv = {2310.02407},
+	  code = {https://github.com/Intelligent-CAT-Lab/BugFarm},
+ 	  journal = {In Proceedings of the 25th IEEE International Conference on Source Code Analysis & Manipulation (SCAM'25), September 7-12, 2025, Auckland, New Zealand},
+}
+
+
+@article{liu2024codemind,
+  title={CodeMind: A Framework to Challenge Large Language Models for Code Reasoning},
+  author={Liu, Changshu and Zhang, Shizhuo Dylan and Ibrahimzada, Ali Reza and Jabbarvand, Reyhaneh},
+  abstract={Solely relying on test passing to evaluate Large Language Models (LLMs) for code synthesis may result in unfair assessment or promoting models with data leakage. As an alternative, we introduce CodeMind, a framework designed to gauge the code reasoning abilities of LLMs. CodeMind currently supports three code reasoning tasks: Independent Execution Reasoning (IER), Dependent Execution Reasoning (DER), and Specification Reasoning (SR). The first two evaluate models to predict the execution output of an arbitrary code or code the model could correctly synthesize. The third one evaluates the extent to which LLMs implement the specified expected behavior. Our extensive evaluation of nine LLMs across five benchmarks in two different programming languages using CodeMind shows that LLMs fairly follow control flow constructs and, in general, explain how inputs evolve to output, specifically for simple programs and the ones they can correctly synthesize. However, their performance drops for code with higher complexity, non-trivial logical and arithmetic operators, non-primitive types, and API calls. Furthermore, we observe that, while correlated, specification reasoning (essential for code synthesis) does not imply execution reasoning (essential for broader programming tasks such as testing and debugging): ranking LLMs based on test passing can be different compared to code reasoning.},
+  journal={arXiv preprint arXiv:2402.09664},
+  selected = {true},
+  abbr = {pre-print},
+  month = april,
+  year={2024},
+  code={https://github.com/Intelligent-CAT-Lab/CodeMind},
+  arxiv = {2402.09664v4},
+  pdf = {codemind.pdf},
 }
 
 @Article{Cakmak2023,
@@ -186,4 +174,19 @@
 	pdf = {molmed.pdf},
 	html = {http://www.turkmoltipder.org/gallery/MolMed_2019_Oral%20P%20Book.pdf},
 	abbr = {IMMC}
+}
+
+@article{ibrahimzada2024thesis,
+	title = {Bridging the Gap between Testing and Debugging through Explainable Deep Oracles},
+	abstract = {Automation of test oracles is one of the most challenging facets of software testing, but remains comparatively less addressed compared to automated test input generation. Test oracles rely on a ground-truth that can distinguish between the correct and buggy behavior to determine whether a test fails (detects a bug) or passes. What makes the oracle problem challenging and undecidable is the assumption that the ground-truth should know the exact expected, correct or buggy behavior. However, we argue that one can still build an accurate oracle without knowing the exact correct or buggy behavior, but how these two might differ. This paper presents SEER, a Deep Learning-based approach that in the absence of test assertions or other types of oracle, can automatically determine whether a unit test passes or fails on a given method under test (MUT). To build the ground-truth, SEER jointly embeds unit tests and the implementation of MUTs into a unified vector space, in such a way that the neural representation of tests are similar to that of MUTs they pass on them, but dissimilar to MUTs they fail on them. The classifier built on top of this vector representation serves as the oracle to generate “fail” labels, when test inputs detect a bug in MUT or “pass” labels, otherwise. Our extensive experiments on applying SEER to more than 5K unit tests from a diverse set of opensource Java projects show that the produced oracle is (1) effective in predicting the fail or pass labels, achieving an overall accuracy, precision, recall, and F1 measure of 93%, 86%, 94%, and 90%, (2) generalizable, predicting the labels for the unit test of projects that were not in training or validation set with negligible performance drop, and (3) efficient, detecting the existence of bugs in only 6.5 milliseconds on average. Moreover, by interpreting the neural model and looking at it beyond a closed-box solution, we confirm that the oracle is valid, i.e., it predicts the labels through learning relevant features.},
+	journal = {MS Thesis, University of Illinois Urbana-Champaign},
+	author = {Ibrahimzada, Ali Reza},
+	month = dec,
+	year = {2024},
+	abbr = {MS THESIS},
+	code = {https://github.com/Intelligent-CAT-Lab/SEER},
+	video = {https://www.youtube.com/watch?v=k9060RSH0hg},
+	html = {https://www.ideals.illinois.edu/items/134259},
+	pdf = {thesis.pdf},
+	slides = {https://uofi.box.com/s/qxsskoer8iil0c47aptxg478h0s0jhz5},
 }
