@@ -1,6 +1,19 @@
 ---
 ---
 
+@article{ibrahimzada2025matchfixagent,
+  title = {MatchFixAgent: Language-Agnostic Autonomous Repository-Level Code Translation Validation and Repair},
+  author = {Ibrahimzada, Ali Reza and Paulsen, Brandon and Jabbarvand, Reyhaneh and Dodds, Joey and Kroening, Daniel},
+  journal={arXiv preprint arXiv:2509.16187},
+  year={2025},
+  abstract = {Code translation transforms source code from one programming language (PL) to another. Validating the functional equivalence of translation and repairing, if necessary, are critical steps in code translation. Existing automated validation and repair approaches struggle to generalize to many PLs due to high engineering overhead, and they rely on existing and often inadequate test suites, which results in false claims of equivalence and ineffective translation repair. To bridge this gap, we develop MatchFixAgent, a large language model (LLM)-based, PL-agnostic framework for equivalence validation and repair of translations. MatchFixAgent features a multi-agent architecture that divides equivalence validation into several sub-tasks to ensure thorough and consistent semantic analysis of the translation. Then it feeds this analysis to test agent to write and execute tests. Upon observing a test failure, the repair agent attempts to fix the translation bug. The final (in)equivalence decision is made by the verdict agent, considering semantic analyses and test execution results. We compare MatchFixAgent's validation and repair results with four repository-level code translation techniques. We use $2{,}219$ translation pairs (each consisting of a source function and its translation) from their artifacts, which cover $6$ PL pairs, and are collected from $24$ GitHub projects totaling over $900K$ lines of code. Our results demonstrate that MatchFixAgent produces (in)equivalence verdicts for $99.2\%$ of translation pairs, with the same equivalence validation result as prior work on $72.8\%$ of them. When MatchFixAgent's result disagrees with prior work, we find that $60.7\%$ of the time MatchFixAgent's result is actually correct. In addition, we show that MatchFixAgent can repair $50.6\%$ of inequivalent translation, compared to prior work's $18.5\%$. This demonstrates that MatchFixAgent is far more adaptable to many PL pairs (with a small overhead of $1{,}650$ lines of code) than prior work, while producing highly accurate validation results.},
+  selected = {true},
+  abbr = {pre-print},
+  month = sep,
+  arxiv = {2509.16187},
+  pdf = {matchfixagent.pdf},
+}
+
 @article{ibrahimzada2024alphatrans,
   title={AlphaTrans: A Neuro-Symbolic Compositional Approach for Repository-Level Code Translation and Validation},
   author={Ibrahimzada, Ali Reza and Ke, Kaiyao and Pawagi, Mrigank and Abid, Muhammad Salman and Pan, Rangeet and Sinha, Saurabh and Jabbarvand, Reyhaneh},
