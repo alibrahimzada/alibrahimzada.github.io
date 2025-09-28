@@ -25,3 +25,15 @@
 "Chen":
   - firstname: ["Yang"]
     url: https://yangc9.github.io/
+
+"Kroening":
+  - firstname: ["Daniel"]
+    url: https://www.kroening.com/
+
+"Paulsen":
+  - firstname: ["Brandon"]
+    url: https://www.amazon.science/author/brandon-paulsen
+
+"Dodds":
+  - firstname: ["Joey"]
+    url: https://www.amazon.science/author/joey-dodds
