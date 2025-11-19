@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://alirezai.cs.illinois.edu//feed.xml" rel="self" type="application/atom+xml" /><link href="https://alirezai.cs.illinois.edu//" rel="alternate" type="text/html" /><updated>2025-11-19T17:47:12+00:00</updated><id>https://alirezai.cs.illinois.edu//feed.xml</id><title type="html">blank</title><subtitle>The official webpage of Ali Reza Ibrahimzada, Siebel School of Computing and Data Science, University of Illinois Urbana-Champaign
+</subtitle><entry><title type="html">test post</title><link href="https://alirezai.cs.illinois.edu//blog/2021/code/" rel="alternate" type="text/html" title="test post" /><published>2021-07-14T18:00:00+00:00</published><updated>2021-07-14T18:00:00+00:00</updated><id>https://alirezai.cs.illinois.edu//blog/2021/code</id><content type="html" xml:base="https://alirezai.cs.illinois.edu//blog/2021/code/"><![CDATA[<p>Sample post related to code.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">return</span> <span class="sh">"</span><span class="s">Hello World!</span><span class="sh">"</span>
+</pre></td></tr></tbody></table></code></pre></figure>]]></content><author><name></name></author><summary type="html"><![CDATA[an example of a blog post with some code]]></summary></entry></feed>
