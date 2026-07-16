@@ -27,6 +27,26 @@
   pdf = {tram.pdf},
 }
 
+@article{ibrahimzada2026dissertation,
+	title = {Neuro-Symbolic Code Translation and Validation},
+	abstract = {Software systems often outlive the programming languages (PLs) in which they were first written. As hardware platforms, deployment environments, security expectations, and developer ecosystems evolve, organizations must repeatedly migrate valuable code from legacy or ill-suited languages to modern ones. Automated code translation promises to reduce this migration effort, but reliable repository-level translation remains difficult. Traditional transpilers encode useful language knowledge in their design, yet they require substantial language-specific engineering and often produce brittle, non-idiomatic code. Large language models (LLMs) produce more natural and idiomatic translations, yet they struggle on real repositories, where correctness depends on cross-file dependencies, library APIs, type systems, and developer-written tests.
+
+	This dissertation presents work on neuro-symbolic and agentic code translation and validation. To make repository-level translation more practical, this dissertation develops techniques that combine the generative abilities of LLMs with program analysis, execution feedback, test-based validation, and multi-agent workflows for translation and validation. These techniques expose the structure of real codebases, guide translation decisions with semantic context, and use validation not merely as a final check but as a source of feedback for detecting and repairing translation failures.
+
+	This dissertation presents contributions along two key directions. The first direction studies why LLM-based code translation fails in realistic settings. Although LLMs can often translate small, self-contained examples, real repositories require global reasoning about language-specific features, call chains, libraries, and tests. This dissertation presents an empirical study of these failures and develops a taxonomy of translation bugs. The taxonomy establishes a foundational understanding of LLM translation limitations and serves as a guide for designing practical tools to mitigate the most common failures.
+
+	The second direction develops techniques for translating, validating, and repairing repository-level code. It first presents AlphaTrans, a neuro-symbolic pipeline that decomposes a repository into smaller fragments, translates them in dependency-aware order, and validates partial translations in isolation while preserving the behavior exercised by existing tests. It then presents MatchFixAgent, a language-agnostic validation and repair framework that combines approximate semantic analyses with specialized agents for test generation and repair. Finally, it presents ReCodeAgent, an end-to-end multi-agent workflow that assigns analysis, planning, translation, and validation to dedicated agent scaffolds; ablation studies show that this division of labor is necessary, as monolithic single-agent instantiations cannot achieve comparable effectiveness.
+
+	Together, these contributions show that LLMs alone are not sufficient for dependable code translation, but can become effective components of larger systems when guided by program analysis and subjected to rigorous validation. The techniques in this dissertation move automated code translation from simple examples toward realistic software modernization, helping developers understand translation failures, produce more reliable translations, and reason more systematically about the correctness of translated code.},
+	journal = {PhD Thesis, University of Illinois Urbana-Champaign},
+	author = {Ibrahimzada, Ali Reza},
+	month = aug,
+	year = {2026},
+	abbr = {PHD THESIS},
+	html = {https://www.ideals.illinois.edu},
+	pdf = {phd_thesis.pdf},
+}
+
 @article{ibrahimzada2026predicting,
   title={Predicting student grades via adaptive multi-level learning models},
   author={Ibrahimzada, Ali Reza and Kosif, Kerem and Gulsen, Ahmed Said and Yaglica, Yavuz Selim and Cakmak, Ali},
@@ -86,7 +106,7 @@
 	code = {https://github.com/Intelligent-CAT-Lab/SEER},
 	video = {https://www.youtube.com/watch?v=k9060RSH0hg},
 	html = {https://www.ideals.illinois.edu/items/134259},
-	pdf = {thesis.pdf},
+	pdf = {ms_thesis.pdf},
 	slides = {presentation_seer_fse22.pdf},
 }
 
