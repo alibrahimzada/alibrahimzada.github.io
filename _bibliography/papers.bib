@@ -11,6 +11,7 @@
   abbr = {ASE'26},
   month = apr,
   arxiv = {2604.07341},
+  html = {https://doi.org/10.1145/3832783.3837486},
   pdf = {recodeagent.pdf},
   code = {https://github.com/Intelligent-CAT-Lab/ReCodeAgent},
 }
@@ -21,7 +22,6 @@
   journal={arXiv preprint arXiv:2511.21878},
   year={2025},
   abstract = {Repository-level code translation aims to migrate entire repositories across programming languages while preserving functionality automatically. Despite advancements in repository-level code translation, validating the translations remains challenging. This paper proposes TRAM, which combines context-aware type resolution with mock-based in-isolation validation to achieve high-quality translations between programming languages. Prior to translation, TRAM retrieves API documentation and contextual code information for each variable type in the source language. It then prompts a large language model (LLM) with retrieved contextual information to resolve type mappings across languages with precise semantic interpretations. Using the automatically constructed type mapping, TRAM employs a custom serialization/deserialization workflow that automatically constructs equivalent mock objects in the target language. This enables each method fragment to be validated in isolation, without the high cost of using agents for translation validation, or the heavy manual effort required by existing approaches that rely on language interoperability. TRAM demonstrates state-of-the-art performance in Java-to-Python translation, underscoring the effectiveness of its integration of RAG-based type resolution with reliable in-isolation validation.},
-  selected = {true},
   abbr = {pre-print},
   month = nov,
   arxiv = {2511.21878},
