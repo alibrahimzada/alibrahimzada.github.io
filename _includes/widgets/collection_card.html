@@ -1,0 +1,17 @@
+<section class="my-3 bg-white shadow-sm rounded-xl">
+  <h2 class="h6 p-3 mb-0 border-bottom">{{ include.title }}</h2>
+  <div class="px-3 py-2 small">
+    {% assign items = include.collection | reverse %}
+    {% for item in items %}
+    <div class="py-2 {% unless forloop.last %}border-bottom{% endunless %}">
+      <div class="d-flex flex-wrap align-items-baseline justify-content-between">
+        <strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }} <i class="fas fa-play-circle" aria-hidden="true"></i></a>{% else %}{{ item.title }}{% endif %}</strong>
+        {% if item.datetime %}<span class="text-muted">{{ item.datetime }}</span>{% endif %}
+      </div>
+      {% if item.location %}<div class="text-muted">{{ item.location }}</div>{% endif %}
+      {% if item.conf %}<div>{{ item.conf }}</div>{% endif %}
+      {{ item.content }}
+    </div>
+    {% endfor %}
+  </div>
+</section>

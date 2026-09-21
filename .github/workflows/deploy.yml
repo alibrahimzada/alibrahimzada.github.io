@@ -1,6 +1,10 @@
 name: Deploy
 
 on:
+  schedule:
+    # Daily at 11:17 UTC (06:17 CDT / 05:17 CST).
+    - cron: '17 11 * * *'
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -10,9 +14,25 @@ on:
       - master
       - main
 
+permissions:
+  contents: read
+
+# Serialize deployments so a scheduled refresh cannot race a normal push.
+concurrency:
+  group: deploy-${{ github.event_name == 'pull_request' && github.ref || 'site' }}
+  cancel-in-progress: false
+
+env:
+  RUBYOPT: -EUTF-8
+
 jobs:
   deploy:
+    if: github.event_name != 'workflow_dispatch' || github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pages: write
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -39,19 +59,60 @@ jobs:
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
         npm install -g mermaid.cli
+    - name: Refresh Google Scholar citations
+      id: citations
+      if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      continue-on-error: true
+      timeout-minutes: 3
+      run: bundle exec ruby bin/update-scholar-citations
+
+    - name: Report unavailable citation refresh
+      if: steps.citations.outcome == 'failure'
+      run: |
+        echo "::warning::Google Scholar refresh failed. The saved counts and live site are unchanged."
+        echo "Google Scholar was unavailable. Kept the previous citation counts and skipped redeployment." >> "$GITHUB_STEP_SUMMARY"
+
+    - name: Save refreshed counts
+      if: steps.citations.outcome == 'success'
+      env:
+        SOURCE_BRANCH: ${{ github.ref_name }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -- _data/google_scholar_citations.json
+        if ! git diff --cached --quiet; then
+          git commit -m "Update Google Scholar citation counts"
+          git push origin "HEAD:$SOURCE_BRANCH"
+        fi
+        echo "Google Scholar counts refreshed. Deploying in this workflow run." >> "$GITHUB_STEP_SUMMARY"
+
     - name: Setup deploy options
+      if: steps.citations.outcome != 'failure'
       id: setup
+      env:
+        SOURCE_BRANCH: ${{ github.head_ref || github.ref_name }}
       run: |
         git config --global user.name "GitHub Action"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        if [[ ${GITHUB_REF} = refs/pull/*/merge ]]; then # pull request
-          echo "::set-output name=SRC_BRANCH::${GITHUB_HEAD_REF}"
-          echo "::set-output name=NO_PUSH::--no-push"
-        elif [[ ${GITHUB_REF} = refs/heads/* ]]; then # branch, e.g. master, source etc
-          echo "::set-output name=SRC_BRANCH::${GITHUB_REF#refs/heads/}"
+        echo "SRC_BRANCH=$SOURCE_BRANCH" >> "$GITHUB_OUTPUT"
+        echo "DEPLOY_BRANCH=gh-pages" >> "$GITHUB_OUTPUT"
+
+    - name: Deploy website
+      if: steps.citations.outcome != 'failure'
+      env:
+        SOURCE_BRANCH: ${{ steps.setup.outputs.SRC_BRANCH }}
+        DEPLOY_BRANCH: ${{ steps.setup.outputs.DEPLOY_BRANCH }}
+      run: |
+        options=()
+        if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
+          options+=(--no-push)
         fi
-        echo "::set-output name=DEPLOY_BRANCH::gh-pages"
-    - name: Deploy website 
-      run:  yes | bin/deploy --verbose ${{ steps.setup.outputs.NO_PUSH }}
-                    --src ${{ steps.setup.outputs.SRC_BRANCH }} 
-                    --deploy ${{ steps.setup.outputs.DEPLOY_BRANCH }} 
+        bin/deploy --verbose "${options[@]}" --src "$SOURCE_BRANCH" --deploy "$DEPLOY_BRANCH" <<< "yes"
+
+    # GITHUB_TOKEN pushes do not trigger another workflow, so request the
+    # branch-based Pages build explicitly after publishing gh-pages.
+    - name: Request GitHub Pages build
+      if: github.event_name != 'pull_request' && steps.citations.outcome != 'failure'
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"

@@ -1,20 +1,15 @@
 source 'https://rubygems.org'
 group :jekyll_plugins do
     gem 'jekyll'
-    gem 'rmagick'
     gem 'jekyll-archives'
-    gem 'jekyll-diagrams'
     gem 'jekyll-email-protect'
     gem 'jekyll-feed'
-    gem 'jekyll-github-metadata'
-    gem 'jekyll-paginate-v2'
-    gem 'jekyll-responsive-image'
     gem 'jekyll-scholar'
     gem 'jekyll-sitemap'
-    gem 'jekyll-target-blank'
-    gem 'jekyll-twitter-plugin'
     gem 'jemoji'
-    gem 'unicode_utils'
     gem 'webrick'
-    gem 'jekyll-seo-tag'
 end
+
+# dart-sass 1.80+ ships a Dart VM that requires macOS 14+.
+# Pin so `bundle exec jekyll serve` works on macOS 13 (Ventura).
+gem 'sass-embedded', '~> 1.77.8'

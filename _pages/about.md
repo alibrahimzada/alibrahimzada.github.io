@@ -1,6 +1,7 @@
 ---
 layout: about
-title: about
+title: Home
+navbar_title: Home
 permalink: /
 # description: <a href="mailto:alirezai@illinois.edu">alirezai@illinois.edu</a>
 
@@ -10,8 +11,7 @@ profile:
   address: >
 
 talks: true
-experience: false
-internships: true
+work_experience: true
 news: true  # includes a list of news items
 services: true
 selected_papers: true # includes a list of papers marked as "selected={true}"

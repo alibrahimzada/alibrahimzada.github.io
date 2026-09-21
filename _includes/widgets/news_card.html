@@ -1,0 +1,36 @@
+<section class="my-3 bg-white shadow-sm rounded-xl">
+  <h2 class="h6 p-3 mb-0 border-bottom"><i class="fas fa-rss" aria-hidden="true"></i> News</h2>
+  <div class="px-3 py-2 small">
+    {% assign news = site.news | sort: 'date' | reverse %}
+    {% assign news_years = news | group_by_exp: 'item', "item.date | date: '%Y'" %}
+    {% assign first_recent_year = site.time | date: '%Y' | minus: 2 %}
+    {% assign older_news = '' %}
+    {% for group in news_years %}
+      {% assign year = group.name | plus: 0 %}
+      {% capture year_news %}
+      <div class="news-year-group py-2">
+        <h3 class="h6 mb-0 pt-2">{{ group.name }}</h3>
+        <div>
+          {% for item in group.items %}
+          <div class="news-item py-2">
+            <div>{% if item.inline %}{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}{% else %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endif %}</div>
+            <time class="text-muted" datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%b %d' }}</time>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endcapture %}
+      {% if year >= first_recent_year %}
+        {{ year_news }}
+      {% else %}
+        {% assign older_news = older_news | append: year_news %}
+      {% endif %}
+    {% endfor %}
+    {% if older_news != '' %}
+    <details class="news-archive">
+      <summary class="news-toggle my-2"><span class="news-see-more">See more</span><span class="news-see-less">See less</span></summary>
+      {{ older_news }}
+    </details>
+    {% endif %}
+  </div>
+</section>

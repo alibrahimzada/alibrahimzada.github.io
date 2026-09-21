@@ -1,174 +1,110 @@
 ---
 ---
-
-<div class="row justify-content-center">
-  <div style="margin-bottom: 25px;" class="col-sm-3 abbr">
-  <center>
-  {% if entry.abbr %}
-      {% if site.data.venues[entry.abbr] %}
-      <abbr style="width: 150px; height: 25px; font-size: medium;" class="badge"><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
-      {% else %}
-      <abbr style="width: 150px; height: 25px; font-size: medium;" class="badge">{{entry.abbr}}</abbr>  
-      {% endif %}
-  {% endif %}
-  {% if entry.badge_avail %}
-    <img src="https://www.acm.org/binaries/content/gallery/acm/publications/artifact-review-v1_1-badges/artifacts_available_v1_1.png" alt="ACM Artifacts Available v1.1" width="60" height="60"/>
-  {% endif %}
-  {% if entry.badge_func %}
-    <img src="https://www.acm.org/binaries/content/gallery/acm/publications/artifact-review-v1_1-badges/artifacts_evaluated_functional_v1_1.png" alt="ACM Artifacts Evaluated - Functional v1.1" width="60" height="60"/>
-  {% endif %}
-  {% if entry.badge_reus %}
-    <img src="https://www.acm.org/binaries/content/gallery/acm/publications/artifact-review-v1_1-badges/artifacts_evaluated_reusable_v1_1.png" alt="ACM Artifacts Evaluated - Reusable v1.1" width="60" height="60"/>
-  {% endif %}
-  </center>
+<article class="publication-item row no-gutters" id="{{ entry.key }}">
+  <div class="publication-badges col-md-3 col-xl-2 p-3" aria-label="Publication badges">
+    {% if entry.abbr %}<span class="badge badge-primary publication-venue">{{ entry.abbr }}</span>{% endif %}
+    <div class="artifact-badges">
+      {% if entry.badge_avail %}<img src="{{ '/assets/img/badges/artifacts-available.png' | relative_url }}" alt="ACM Artifacts Available" width="64" height="64" loading="lazy">{% endif %}
+      {% if entry.badge_func %}<img src="{{ '/assets/img/badges/artifacts-functional.png' | relative_url }}" alt="ACM Artifacts Evaluated: Functional" width="64" height="64" loading="lazy">{% endif %}
+      {% if entry.badge_reus %}<img src="{{ '/assets/img/badges/artifacts-reusable.png' | relative_url }}" alt="ACM Artifacts Evaluated: Reusable" width="64" height="64" loading="lazy">{% endif %}
+    </div>
   </div>
-
-  <div id="{{entry.key}}" class="col-sm-9">
-    {% if entry.type == "thesis" %}
-      {{reference}}
-    {% else %}
-      <div class="title">{{entry.title}}</div>
+  <div class="publication-content col-md-9 col-xl-10 p-3 pl-md-0">
+  <h3 class="h5 font-weight-normal mb-1">{{ entry.title }}</h3>
+  <div class="small">
+      {% assign equal_authors = entry.equal_contribution | default: '' | split: ',' %}
+      {% assign has_equal_contribution = false %}
       <div class="author">
-        {% for author in entry.author_array %}
+        {%- for author in entry.author_array -%}
+          {%- capture author_markup -%}
+          {% assign first_name = author.first | replace: '*', '' %}
+          {% assign last_name = author.last | replace: '*', '' %}
           {% assign author_is_self = false %}
-          {% if author.last == site.scholar.last_name or author.last | slice: 0, site.scholar.last_name | size == site.scholar.last_name %}
-            {% if site.scholar.first_name contains author.first%}
-              {% assign author_is_self = true %}
-            {% endif %}
+          {% if last_name == site.scholar.last_name and site.scholar.first_name contains first_name %}
+            {% assign author_is_self = true %}
           {% endif %}
           {% assign coauthor_url = nil %}
-          {% if site.data.coauthors[author.last] %}
-            {% for coauthor in site.data.coauthors[author.last] %}
-              {% if coauthor.firstname contains author.first %}
-                {% assign coauthor_url = coauthor.url %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-          
-          {% if forloop.length == 1 %}
-            {% if author_is_self %}
-              <em style="font-weight: bold;">{{author.first}} {{author.last}}</em>
-            {% else %}
-              {{author.first}} {{author.last}}
-            {% endif %}
-          {% else %}
-            {% unless forloop.last %}
-              {% if author_is_self %}
-                <em style="font-weight: bold;">{{author.first}} {{author.last}}</em>,
-              {% else %}
-                {% if coauthor_url %}
-                  <a href="{{coauthor_url}}">{{author.first}} {{author.last}}</a>,
-                {% else %}
-                  {{author.first}} {{author.last}},
-                {% endif %}
-              {% endif %}
-            {% else %}
-              {% if author_is_self %}
-                and <em style="font-weight: bold;">{{author.first}} {{author.last}},</em>
-              {% else %}
-                {% if coauthor_url %}
-                  and <a href="{{coauthor_url}}">{{author.first}} {{author.last}}</a>
-                {% else %}
-                  and {{author.first}} {{author.last}}
-                {% endif %}
-              {% endif %}
-            {% endunless %}
-          {% endif %}
-        {% endfor %}
+          {% for coauthor in site.data.coauthors[author.last] %}
+            {% if coauthor.firstname contains author.first %}{% assign coauthor_url = coauthor.url %}{% break %}{% endif %}
+          {% endfor %}
+          {% assign author_is_equal = false %}
+          {% if entry.equal_contribution == true or entry.equal_contribution == 'true' %}{% if forloop.index <= 2 %}{% assign author_is_equal = true %}{% assign has_equal_contribution = true %}{% endif %}{% endif %}
+          {% assign author_number = forloop.index | append: '' %}
+          {% for equal_author in equal_authors %}
+            {% assign equal_number = equal_author | strip %}
+            {% if equal_number == author_number %}{% assign author_is_equal = true %}{% assign has_equal_contribution = true %}{% endif %}
+          {% endfor %}
+          <span>{% if author_is_self %}<strong>{{ first_name }} {{ last_name }}</strong>{% elsif coauthor_url %}<a href="{{ coauthor_url }}">{{ first_name }} {{ last_name }}</a>{% else %}{{ first_name }} {{ last_name }}{% endif %}{% if author_is_equal %}<sup aria-label="equal contribution">*</sup>{% endif %}</span>
+          {%- endcapture -%}
+          {%- unless forloop.first -%}{% if forloop.last %} and {% else %}, {% endif %}{%- endunless -%}
+          {{- author_markup | strip -}}
+        {%- endfor -%}
       </div>
+      {% if has_equal_contribution %}<mark class="equal-contribution">(* equal contribution)</mark>{% endif %}
 
-      <div class="periodical">
-      {% if entry.type == "article" %}
-        <em>{{entry.journal}}</em>
-      {% elsif entry.type == "inproceedings" %}
-        <em>In {{entry.booktitle}}</em>
-      {% endif %}
-      <!-- {% if entry.month %}
-        {{entry.month | capitalize}}
-      {% endif %} -->
-      <!-- {% if entry.year %}
-        {{entry.year}}
-      {% endif %} -->
-      </div>
-
-      <div style="font-weight: 900; color: red;">
-        {% if entry.award %}
-        🏆 {{entry.award}}
-        {% endif %}
-      </div>
-    {% endif %}
-
-    <div class="links">
-    {% if entry.abstract %}
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    {% endif %}
+    <div class="publication-venue-line"><i>{% if entry.journal %}{{ entry.journal }}{% elsif entry.booktitle %}{{ entry.booktitle }}{% endif %}</i>
+      {% assign citations = site.data.google_scholar_citations[entry.key] %}
+      {% if citations %}<a class="badge badge-pill badge-publication badge-info" href="{{ citations.url | escape }}" title="Google Scholar · checked {{ citations.checked }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-scholar" aria-hidden="true"></i> {{ citations.count }} {% if citations.count == 1 %}citation{% else %}citations{% endif %}</a>{% endif %}
+      {% if entry.highlight %}<span class="badge badge-pill badge-publication badge-success">🏆 {{ entry.highlight }}</span>{% endif %}
+    </div>
+    {% if entry.abstract %}<details class="abstract-more mt-2"><summary><i class="fas fa-caret-right" aria-hidden="true"></i> Abstract</summary><div class="abstract-full text-muted mt-2">{{ entry.abstract }}</div></details>{% elsif entry.summary %}<p class="text-muted mb-0 mt-1">{{ entry.summary }}</p>{% endif %}
+    {% assign bibtex_entry = site.data.bibtex_entries[entry.bib] %}
+    {% if bibtex_entry %}<details class="abstract-more bibtex-more mt-2"><summary><i class="fas fa-caret-right" aria-hidden="true"></i> BibTeX</summary><div class="bibtex-panel"><div class="bibtex-toolbar"><button type="button" class="bibtex-copy btn btn-sm btn-outline-secondary" aria-label="Copy BibTeX" title="Copy BibTeX"><i class="far fa-copy" aria-hidden="true"></i></button><span class="bibtex-copy-status sr-only" role="status"></span></div>{% highlight bibtex %}{{ bibtex_entry }}{% endhighlight %}</div></details>{% endif %}
+    <div class="publication-actions mt-2">
+    {% if entry.award and entry.highlight == nil %}<span class="badge badge-pill badge-publication badge-success">{{ entry.award }}</span>{% endif %}
+    <div class="publication-links mt-2">
     {% if entry.arxiv %}
-      <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
-    {% endif %}
-    {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+      <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="publication-link">arXiv</a>
     {% endif %}
     {% if entry.html %}
-      <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
+      <a href="{{ entry.html }}" class="publication-link">DOI</a>
     {% endif %}
     {% if entry.pdf %}
       {% if entry.pdf contains '://' %}
-      <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+      <a href="{{ entry.pdf }}" class="publication-link">PDF</a>
       {% else %}
-      <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+      <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="publication-link">PDF</a>
       {% endif %}
     {% endif %}
     {% if entry.supp %}
       {% if entry.supp contains '://' %}
-      <a href="{{ entry.supp }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
+      <a href="{{ entry.supp }}" class="publication-link">Supp</a>
       {% else %}
-      <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
+      <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="publication-link">Supp</a>
       {% endif %}
     {% endif %}
     {% if entry.blog %}
-      <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button">Blog</a>
+      <a href="{{ entry.blog }}" class="publication-link">Blog</a>
     {% endif %}
     {% if entry.code %}
-      <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
+      <a href="{{ entry.code }}" class="publication-link">Code</a>
     {% endif %}
     {% if entry.poster %}
       {% if entry.poster contains '://' %}
-      <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+      <a href="{{ entry.poster }}" class="publication-link">Poster</a>
       {% else %}
-      <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+      <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="publication-link">Poster</a>
       {% endif %}
     {% endif %}
     {% if entry.slides %}
       {% if entry.slides contains '://' %}
-      <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+      <a href="{{ entry.slides }}" class="publication-link">Slides</a>
       {% else %}
-      <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+      <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="publication-link">Slides</a>
       {% endif %}
     {% endif %}
     {% if entry.website %}
-      <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+      <a href="{{ entry.website }}" class="publication-link">Website</a>
     {% endif %}
     {% if entry.video %}
-      <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button">Video</a>
+      <a href="{{ entry.video }}" class="publication-link">Video</a>
     {% endif %}
     {% if entry.dataset %}
-      <a href="{{ entry.dataset }}" class="btn btn-sm z-depth-0" role="button">Dataset</a>
-    {% endif %}
-    </div>
-
-    <!-- Hidden abstract block -->
-    {% if entry.abstract %}
-    <div class="abstract hidden">
-      <p>{{ entry.abstract }}</p>
-    </div>
+      <a href="{{ entry.dataset }}" class="publication-link">Dataset</a>
     {% endif %}
 
-    <!-- Hidden bibtex block -->
-    {% if entry.bibtex_show %}
-    <div class="bibtex hidden">
-      {% highlight bibtex %}{{ entry.bibtex }}{% endhighlight %}
     </div>
-    {% endif %}
+    </div>
   </div>
-</div>
+  </div>
+</article>

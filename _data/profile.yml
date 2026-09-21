@@ -1,0 +1,27 @@
+primary_name: Ali Reza Ibrahimzada
+navbar_name: Ali Reza Ibrahimzada
+positions:
+  - name: CS PhD candidate
+  - name: University of Illinois Urbana-Champaign
+email: alirezai@illinois.edu
+gscholar: 4cM2uQwAAAAJ
+github: alibrahimzada
+twitter: alibrahimzada
+linkedin: alibrahimzada
+orcid: 0000-0002-3797-818X
+portrait_url: /assets/img/ali3.png
+portrait_caption: Ali Reza Ibrahimzada
+cv_link: /assets/pdf/cv.pdf
+education:
+  - institution: University of Illinois Urbana-Champaign
+    degree: Ph.D. in Computer Science
+    dates: Aug. 2022 – Aug. 2026
+    logo: /assets/img/illinois.jpg
+  - institution: University of Illinois Urbana-Champaign
+    degree: M.Sc. in Computer Science
+    dates: Aug. 2022 – Dec. 2024
+    logo: /assets/img/illinois.jpg
+  - institution: Marmara University
+    degree: B.Sc. in Computer Engineering
+    dates: Sep. 2018 – Jul. 2022
+    logo: /assets/img/marmara.jpg
