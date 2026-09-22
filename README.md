@@ -76,22 +76,24 @@ to the BibTeX entry, using the portion after the colon in the Scholar paper URL'
 existing counts retained. Papers without a match have no badge, rather than a
 misleading zero. Zero counts are imported only from an uncited profile row.
 
-Google may block automated requests. The updater fails without replacing the
-cache if blocked or if no papers match. It also accepts a locally saved profile:
-`bundle exec ruby bin/update-scholar-citations path/to/profile.html`.
-A daily refresh is configured in `.github/workflows/deploy.yml` at **11:17 UTC**
-(06:17 Chicago daylight time / 05:17 standard time). It runs on the default
-branch once these changes are pushed. You can also use **Actions → Deploy → Run
-workflow** on the default branch. No additional API key is needed.
+Google may block automated requests, so citation refresh is intentionally local.
+Run the updater from the repository before committing and pushing:
 
-A successful refresh commits only the citation JSON, then publishes the site in
-the same run and requests a GitHub Pages build. A failed refresh produces a
-warning and leaves the saved counts and live site untouched. Normal pushes and
-pull requests continue to use the saved counts without contacting Scholar.
-The workflow needs permission to push to the default branch (branch protection
-must allow the bot), and Pages should keep its existing `gh-pages` branch source.
-GitHub can delay scheduled jobs and disable schedules in inactive public repos.
-For manual local refreshes, commit the updated JSON and deploy as before.
+```sh
+bin/update-scholar-citations-local
+```
+
+If Scholar blocks the local request, save the profile page from your browser as
+HTML and pass that file to the updater:
+
+```sh
+bin/update-scholar-citations-local path/to/profile.html
+```
+
+The updater replaces `_data/google_scholar_citations.json` only after it finds
+valid matches. Review and commit that JSON file manually. GitHub Actions only
+builds and deploys the committed site; it no longer contacts Google Scholar or
+updates citation data automatically.
 
 To mark equal contributors, add their **1-based positions** in the BibTeX author
 list, separated by commas. For example, for a paper whose first two authors

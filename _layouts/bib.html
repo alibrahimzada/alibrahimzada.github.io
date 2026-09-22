@@ -54,53 +54,53 @@
     {% if entry.award and entry.highlight == nil %}<span class="badge badge-pill badge-publication badge-success">{{ entry.award }}</span>{% endif %}
     <div class="publication-links mt-2">
     {% if entry.arxiv %}
-      <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="publication-link">arXiv</a>
+      <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="publication-link" target="_blank" rel="noopener noreferrer">arXiv</a>
     {% endif %}
     {% if entry.html %}
-      <a href="{{ entry.html }}" class="publication-link">DOI</a>
+      <a href="{{ entry.html }}" class="publication-link" target="_blank" rel="noopener noreferrer">DOI</a>
     {% endif %}
     {% if entry.pdf %}
       {% if entry.pdf contains '://' %}
-      <a href="{{ entry.pdf }}" class="publication-link">PDF</a>
+      <a href="{{ entry.pdf }}" class="publication-link" target="_blank" rel="noopener noreferrer">PDF</a>
       {% else %}
-      <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="publication-link">PDF</a>
+      <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="publication-link" target="_blank" rel="noopener noreferrer">PDF</a>
       {% endif %}
     {% endif %}
     {% if entry.supp %}
       {% if entry.supp contains '://' %}
-      <a href="{{ entry.supp }}" class="publication-link">Supp</a>
+      <a href="{{ entry.supp }}" class="publication-link" target="_blank" rel="noopener noreferrer">Supp</a>
       {% else %}
-      <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="publication-link">Supp</a>
+      <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="publication-link" target="_blank" rel="noopener noreferrer">Supp</a>
       {% endif %}
     {% endif %}
     {% if entry.blog %}
-      <a href="{{ entry.blog }}" class="publication-link">Blog</a>
+      <a href="{{ entry.blog }}" class="publication-link" target="_blank" rel="noopener noreferrer">Blog</a>
     {% endif %}
     {% if entry.code %}
-      <a href="{{ entry.code }}" class="publication-link">Code</a>
+      <a href="{{ entry.code }}" class="publication-link" target="_blank" rel="noopener noreferrer">Code</a>
     {% endif %}
     {% if entry.poster %}
       {% if entry.poster contains '://' %}
-      <a href="{{ entry.poster }}" class="publication-link">Poster</a>
+      <a href="{{ entry.poster }}" class="publication-link" target="_blank" rel="noopener noreferrer">Poster</a>
       {% else %}
-      <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="publication-link">Poster</a>
+      <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="publication-link" target="_blank" rel="noopener noreferrer">Poster</a>
       {% endif %}
     {% endif %}
     {% if entry.slides %}
       {% if entry.slides contains '://' %}
-      <a href="{{ entry.slides }}" class="publication-link">Slides</a>
+      <a href="{{ entry.slides }}" class="publication-link" target="_blank" rel="noopener noreferrer">Slides</a>
       {% else %}
-      <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="publication-link">Slides</a>
+      <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="publication-link" target="_blank" rel="noopener noreferrer">Slides</a>
       {% endif %}
     {% endif %}
     {% if entry.website %}
-      <a href="{{ entry.website }}" class="publication-link">Website</a>
+      <a href="{{ entry.website }}" class="publication-link" target="_blank" rel="noopener noreferrer">Website</a>
     {% endif %}
     {% if entry.video %}
-      <a href="{{ entry.video }}" class="publication-link">Video</a>
+      <a href="{{ entry.video }}" class="publication-link" target="_blank" rel="noopener noreferrer">Video</a>
     {% endif %}
     {% if entry.dataset %}
-      <a href="{{ entry.dataset }}" class="publication-link">Dataset</a>
+      <a href="{{ entry.dataset }}" class="publication-link" target="_blank" rel="noopener noreferrer">Dataset</a>
     {% endif %}
 
     </div>

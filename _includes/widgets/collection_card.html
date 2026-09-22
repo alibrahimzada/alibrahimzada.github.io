@@ -5,7 +5,7 @@
     {% for item in items %}
     <div class="py-2 {% unless forloop.last %}border-bottom{% endunless %}">
       <div class="d-flex flex-wrap align-items-baseline justify-content-between">
-        <strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }} <i class="fas fa-play-circle" aria-hidden="true"></i></a>{% else %}{{ item.title }}{% endif %}</strong>
+        <strong>{% if item.link %}<a href="{{ item.link }}"{% if include.new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }} <i class="fas fa-play-circle" aria-hidden="true"></i></a>{% else %}{{ item.title }}{% endif %}</strong>
         {% if item.datetime %}<span class="text-muted">{{ item.datetime }}</span>{% endif %}
       </div>
       {% if item.location %}<div class="text-muted">{{ item.location }}</div>{% endif %}

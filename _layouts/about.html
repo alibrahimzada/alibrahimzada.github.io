@@ -10,7 +10,7 @@ layout: default
       <div class="card-body p-4">
         <h1 class="h3 mb-3">About Me</h1>
         <div class="text-profile-bio">{{ content }}</div>
-        <a href="{{ site.data.profile.cv_link | relative_url }}"><i class="fas fa-file-alt" aria-hidden="true"></i> Curriculum Vitae</a>
+        <a href="{{ site.data.profile.cv_link | relative_url }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt" aria-hidden="true"></i> Curriculum Vitae</a>
       </div>
     </section>
     {% include widgets/background_card.html %}
@@ -22,7 +22,7 @@ layout: default
       <div class="p-3 text-right border-top"><a href="{{ '/publications/' | relative_url }}">All publications &raquo;</a></div>
     </section>
     {% endif %}
-    {% if page.talks %}{% include widgets/collection_card.html collection=site.talks title="Talks" %}{% endif %}
+    {% if page.talks %}{% include widgets/collection_card.html collection=site.talks title="Talks" new_tab=true %}{% endif %}
     {% if page.services %}{% include widgets/collection_card.html collection=site.services title="Academic Service" %}{% endif %}
   </div>
 </div>
