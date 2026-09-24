@@ -19,15 +19,13 @@
     <section class="col-lg-6" aria-labelledby="work-heading">
       <h2 id="work-heading" class="h6 mb-3">Work Experience</h2>
       <ul class="list-unstyled mb-0">
-        {% assign internships = site.internships | reverse %}
-        {% for item in internships %}
+        {% for item in site.data.profile.work_experience %}
         <li class="background-item mb-3">
           <img src="{{ '/assets/img/' | append: item.logo | relative_url }}" alt="" class="background-logo">
           <div class="small">
             <div class="font-weight-bold">{{ item.title }}</div>
             <div>{{ item.location }}</div>
-            <div class="text-muted">{{ item.datetime }}</div>
-            {{ item.content }}
+            <div class="text-muted">{{ item.dates }}</div>
           </div>
         </li>
         {% endfor %}

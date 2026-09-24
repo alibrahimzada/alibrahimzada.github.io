@@ -25,3 +25,16 @@ education:
     degree: B.Sc. in Computer Engineering
     dates: Sep. 2018 – Jul. 2022
     logo: /assets/img/marmara.jpg
+work_experience:
+  - title: Amazon AWS
+    location: Arlington, VA
+    dates: May 2025 – Aug. 2025
+    logo: aws.png
+  - title: IBM Research
+    location: Yorktown Heights, NY
+    dates: May 2024 – Aug. 2024
+    logo: ibm.png
+  - title: IBM Research
+    location: Yorktown Heights, NY
+    dates: May 2023 – Aug. 2023
+    logo: ibm.png

@@ -91,11 +91,6 @@ collections:
       layout: post
     output: true
     permalink: /services/:path/
-  internships:
-    defaults:
-      layout: post
-    output: true
-    permalink: /internships/:path/
   talks:
     defaults:
       layout: post
@@ -108,7 +103,6 @@ collections:
     permalink: /news/:path/
 news_limit: 10
 talks_limit: 10
-internships_limit: 10
 services_limit: 10
 
 # -----------------------------------------------------------------------------

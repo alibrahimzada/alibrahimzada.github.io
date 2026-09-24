@@ -11,8 +11,8 @@ layout: default
   {% endif %}
 
   <header class="post-header">
-    <h1 class="post-title"> <i class="fas fa-calendar fa-sm"></i> {{ archive_year }} </h1>
-    <p class="post-description"> an archive of posts from this year </p>
+    <h1 class="post-title"><i class="fas fa-calendar fa-sm"></i> {{ archive_year }}</h1>
+    <p class="post-description">an archive of news from this year</p>
   </header>
 
   <article>
@@ -21,7 +21,7 @@ layout: default
         {% assign archive_from_page = true %}
         {% if page.posts == empty or page.posts == nil %}
         {% assign archive_from_page = false %}
-        {% assign archive_posts = site.blogs | sort: 'date' | reverse %}
+        {% assign archive_posts = site.news | sort: 'date' | reverse %}
         {% else %}
         {% assign archive_posts = page.posts %}
         {% endif %}
@@ -31,7 +31,7 @@ layout: default
         <tr>
           <th scope="row">{{ post.date | date: "%b %-d, %Y" }}</th>
           <td>
-              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
           </td>
         </tr>
         {% endif %}

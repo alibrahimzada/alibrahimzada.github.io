@@ -30,7 +30,7 @@ RUBYOPT=-EUTF-8 bundle exec jekyll serve
 - `_bibliography/bibtex.bib`: clean BibTeX citations; set `bib = {key}` in a
   `papers.bib` entry to show that citation behind its `Bib` button.
 - `_pages/publications.md`: publication years and the `/publications/` page.
-- `_news/`, `_internships/`, `_talks/`, `_services/`: homepage content.
+- `_news/`, `_talks/`, `_services/`: homepage content.
 - `_data/navigation.yml`: navigation links.
 - `_data/display.yml`: footer attribution.
 - `assets/css/global.css`: shared site styles.
