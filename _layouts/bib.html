@@ -45,6 +45,8 @@
     <div class="publication-venue-line"><i>{% if entry.journal %}{{ entry.journal }}{% elsif entry.booktitle %}{{ entry.booktitle }}{% endif %}</i>
       {% assign citations = site.data.google_scholar_citations[entry.key] %}
       {% if citations %}<a class="badge badge-pill badge-publication badge-info" href="{{ citations.url | escape }}" title="Google Scholar · checked {{ citations.checked }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-scholar" aria-hidden="true"></i> {{ citations.count }} {% if citations.count == 1 %}citation{% else %}citations{% endif %}</a>{% endif %}
+      {% assign github_stars = site.data.github_stars[entry.key] %}
+      {% if github_stars %}<a class="badge badge-pill badge-publication badge-dark" href="{{ github_stars.url | escape }}" title="GitHub {{ github_stars.repository }} · checked {{ github_stars.checked }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> {{ github_stars.count }} {% if github_stars.count == 1 %}star{% else %}stars{% endif %}</a>{% endif %}
       {% if entry.highlight %}<span class="badge badge-pill badge-publication badge-success">🏆 {{ entry.highlight }}</span>{% endif %}
     </div>
     {% if entry.abstract %}<details class="abstract-more mt-2"><summary><i class="fas fa-caret-right" aria-hidden="true"></i> Abstract</summary><div class="abstract-full text-muted mt-2">{{ entry.abstract }}</div></details>{% elsif entry.summary %}<p class="text-muted mb-0 mt-1">{{ entry.summary }}</p>{% endif %}

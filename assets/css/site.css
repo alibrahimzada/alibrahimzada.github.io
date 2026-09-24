@@ -73,4 +73,5 @@ body { position: relative; }
   .publication-badges { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; padding-bottom: 0 !important; }
   .artifact-badges img { width: 48px; height: 48px; }
   .publication-content { padding-top: .75rem !important; }
+  .publication-venue-line .badge-success { display: block; width: fit-content; max-width: calc(100% - .5rem); margin: .5rem .25rem 0; white-space: normal; text-align: center; line-height: 1.4; }
 }

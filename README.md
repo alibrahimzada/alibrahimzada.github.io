@@ -69,6 +69,13 @@ browsers. Refresh them before building or deploying:
 RUBYOPT=-EUTF-8 bundle exec ruby bin/update-scholar-citations
 ```
 
+Publication cards also display saved GitHub star counts for repositories listed
+in each paper's `code` field. Refresh them before building or deploying:
+
+```sh
+bundle exec ruby bin/update-github-stars
+```
+
 The updater reads the public profile in `_data/profile.yml` and matches exact
 normalized titles. Where a title differs, add `google_scholar_id = {ARTICLE_ID}`
 to the BibTeX entry, using the portion after the colon in the Scholar paper URL's

@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+# Refresh GitHub star counts for publication repositories.
+# Run with: bundle exec ruby bin/update-github-stars
+
+require 'date'
+require 'json'
+require 'net/http'
+require 'uri'
+require 'bibtex'
+
+ROOT = File.expand_path('..', __dir__)
+BIBLIOGRAPHY = File.join(ROOT, '_bibliography', 'papers.bib')
+OUTPUT = File.join(ROOT, '_data', 'github_stars.json')
+
+def github_repository(url)
+  uri = URI.parse(url)
+  return unless uri.host == 'github.com'
+
+  parts = uri.path.split('/').reject(&:empty?)
+  return unless parts.length >= 2
+
+  [parts[0], parts[1].sub(/\.git\z/, '')]
+rescue URI::InvalidURIError
+  nil
+end
+
+def fetch_repository(owner, name)
+  uri = URI("https://api.github.com/repos/#{URI.encode_www_form_component(owner)}/#{URI.encode_www_form_component(name)}")
+  request = Net::HTTP::Get.new(uri)
+  request['Accept'] = 'application/vnd.github+json'
+  request['User-Agent'] = 'alirezai.cs.illinois.edu publication metadata updater'
+
+  response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+    http.request(request)
+  end
+
+  raise "GitHub API returned #{response.code} for #{owner}/#{name}" unless response.is_a?(Net::HTTPSuccess)
+
+  JSON.parse(response.body)
+end
+
+bibliography = BibTeX.parse(File.read(BIBLIOGRAPHY, encoding: 'UTF-8'))
+checked = Date.today.iso8601
+stars = {}
+
+bibliography.each do |entry|
+  repository = github_repository(entry['code'].to_s)
+  next unless repository
+
+  owner, name = repository
+  data = fetch_repository(owner, name)
+  stars[entry.key] = {
+    'repository' => "#{owner}/#{name}",
+    'url' => "https://github.com/#{owner}/#{name}",
+    'count' => data.fetch('stargazers_count'),
+    'checked' => checked
+  }
+end
+
+File.write(OUTPUT, JSON.pretty_generate(stars) + "\n", encoding: 'UTF-8')
+puts "Updated #{stars.length} GitHub star records in #{OUTPUT}"

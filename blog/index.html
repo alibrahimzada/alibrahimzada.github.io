@@ -3,6 +3,8 @@ layout: default
 title: Blog
 navbar_title: Blog
 permalink: /blog/
+body_attr: >-
+  data-spy="scroll" data-target="#navbar-blog-year" data-offset="100"
 ---
 
 {% assign blogs_by_year = site.blogs | sort: 'date' | reverse | group_by_exp: 'item', "item.date | date: '%Y'" %}
@@ -25,9 +27,9 @@ permalink: /blog/
     {% endfor %}
   </div>
   <aside class="col-lg-2 d-none d-lg-block">
-    <nav class="sticky-top blog-years" aria-label="Blog years">
+    <nav id="navbar-blog-year" class="nav nav-pills flex-column sticky-top blog-years" aria-label="Blog years">
       {% for year in blogs_by_year %}
-      <a class="d-block py-2" href="#blog-year-{{ year.name }}">{{ year.name }}</a>
+      <a class="nav-link" href="#blog-year-{{ year.name }}">{{ year.name }}</a>
       {% endfor %}
     </nav>
   </aside>
