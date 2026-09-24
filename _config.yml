@@ -39,8 +39,6 @@ max_width: 800px
 # Open Graph
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
-serve_og_meta: true # Include Open Graph meta tags in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
 # Social integration
@@ -69,7 +67,6 @@ contact_note: >
   
 
 google_analytics: UA-201629369-1 # out your google-analytics code
-panelbear_analytics: XXXXXXXXX # panelbear analytics site ID
 
 # -----------------------------------------------------------------------------
 # Blog
@@ -84,6 +81,9 @@ permalink: /blog/:year/:title/
 # -----------------------------------------------------------------------------
 
 collections:
+  blogs:
+    output: true
+    permalink: /blog/:year/:title/
   personal:
     output: false
   services:
@@ -206,11 +206,7 @@ scholar:
 # -----------------------------------------------------------------------------
 
 enable_google_analytics: true
-enable_panelbear_analytics: false
 
-academicons:
-  version: "1.9.0"
-  integrity: "sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg=="
 bootstrap:
   version: "4.5.2"
   integrity:

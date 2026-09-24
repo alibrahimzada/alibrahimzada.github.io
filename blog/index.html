@@ -5,7 +5,7 @@ navbar_title: Blog
 permalink: /blog/
 ---
 
-{% assign blogs_by_year = site.posts | sort: 'date' | reverse | group_by_exp: 'item', "item.date | date: '%Y'" %}
+{% assign blogs_by_year = site.blogs | sort: 'date' | reverse | group_by_exp: 'item', "item.date | date: '%Y'" %}
 <h1 class="h3 mb-4">Blog</h1>
 <div class="row">
   <div class="col-lg-10">
