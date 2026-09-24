@@ -13,7 +13,7 @@
         <div>
           {% for item in group.items %}
           <div class="news-item py-2">
-            <div>{% if item.inline %}{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}{% else %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endif %}</div>
+            <div>{% if item.inline %}{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}{% else %}<a href="{{ item.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% endif %}</div>
             <time class="text-muted" datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%b %d' }}</time>
           </div>
           {% endfor %}

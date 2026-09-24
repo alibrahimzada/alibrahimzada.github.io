@@ -17,9 +17,9 @@ layout: default
     {% if page.news %}{% include widgets/news_card.html %}{% endif %}
     {% if page.selected_papers %}
     <section class="my-3 bg-white shadow-sm rounded-xl publications">
-      <h2 class="h6 border-bottom p-3 mb-0"><i class="fas fa-star" aria-hidden="true"></i> Selected Publications <a class="font-weight-normal" href="{{ '/publications/' | relative_url }}">(view all)</a></h2>
+      <h2 class="h6 border-bottom p-3 mb-0"><i class="fas fa-star" aria-hidden="true"></i> Selected Publications <a class="font-weight-normal" href="{{ '/publications/' | relative_url }}" target="_blank" rel="noopener noreferrer">(view all)</a></h2>
       {% bibliography -f papers -q @*[selected=true]* %}
-      <div class="p-3 text-right border-top"><a href="{{ '/publications/' | relative_url }}">All publications &raquo;</a></div>
+      <div class="p-3 text-right border-top"><a href="{{ '/publications/' | relative_url }}" target="_blank" rel="noopener noreferrer">All publications &raquo;</a></div>
     </section>
     {% endif %}
     {% if page.talks %}{% include widgets/collection_card.html collection=site.talks title="Talks" new_tab=true %}{% endif %}
