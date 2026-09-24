@@ -7,6 +7,14 @@
 
     <meta name="description" content="{{ site.description | strip | escape }}">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.data.profile.primary_name | escape }}">
+    <meta property="og:description" content="{{ site.description | strip | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:site_name" content="{{ site.data.profile.primary_name | escape }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ site.data.profile.primary_name | escape }}">
+    <meta name="twitter:description" content="{{ site.description | strip | escape }}">
     <link rel="icon" href="{{ "/assets/img/favicon.ico" | relative_url }}">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
