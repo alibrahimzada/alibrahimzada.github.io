@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Blog - Ali Reza Ibrahimzada</title>
+    <title>Stats - Ali Reza Ibrahimzada</title>
 
     <meta name="description" content="The official webpage of Ali Reza Ibrahimzada">
-    <link rel="canonical" href="https://alirezai.cs.illinois.edu//blog/">
+    <link rel="canonical" href="https://alirezai.cs.illinois.edu//stats/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ali Reza Ibrahimzada">
     <meta property="og:description" content="The official webpage of Ali Reza Ibrahimzada">
-    <meta property="og:url" content="https://alirezai.cs.illinois.edu//blog/">
+    <meta property="og:url" content="https://alirezai.cs.illinois.edu//stats/">
     <meta property="og:site_name" content="Ali Reza Ibrahimzada">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Ali Reza Ibrahimzada">
@@ -28,8 +28,11 @@
     <link rel="stylesheet" href="/assets/css/github.css">
     <link rel="stylesheet" href="/assets/css/site.css">
     
+    <link rel="stylesheet" href="/assets/css/personal.css">
+    <script defer src="/assets/js/personal.js"></script>
+    
 </head>
-<body class="bg-light d-flex flex-column min-vh-100" data-spy="scroll" data-target="#navbar-blog-year" data-offset="100">
+<body class="bg-light d-flex flex-column min-vh-100" >
     <nav class="navbar navbar-expand-sm navbar-light fixed-top mb-5 shadow-sm">
     <div class="container-lg">
         <a class="navbar-brand" href="/"><strong>Ali Reza Ibrahimzada</strong></a>
@@ -48,12 +51,12 @@
                     <a class="nav-link"  href="/publications/">Publications</a>
                 </li>
                 
-                <li class="nav-item active">
-                    <a class="nav-link" aria-current="page" href="/blog/">Blog</a>
+                <li class="nav-item ">
+                    <a class="nav-link"  href="/blog/">Blog</a>
                 </li>
                 
-                <li class="nav-item ">
-                    <a class="nav-link"  href="/personal/">Personal</a>
+                <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" href="/personal/">Personal</a>
                 </li>
                 
             </ul>
@@ -63,33 +66,36 @@
 
     <a class="skip-link" href="#main-content">Skip to content</a>
     <main id="main-content" class="flex-grow-1 flex-shrink-0 container-lg">
-        
-<h1 class="h3 mb-4">Blog</h1>
-<div class="row">
-  <div class="col-lg-10">
-    
-    <section class="mb-4" aria-labelledby="blog-year-2026">
-      <h2 id="blog-year-2026" class="h4 mb-3">2026</h2>
-      <div class="bg-white shadow-sm rounded-xl">
-        
-        <article class="p-4 ">
-          <h3 class="h5 mb-2"><a href="/blog/2026/coming-soon/">Coming soon</a></h3>
-          <p class="mb-2">My first blog post is coming soon.</p>
-          <time class="small text-muted" datetime="2026-09-21">Sep 21, 2026</time>
-        </article>
-        
-      </div>
-    </section>
-    
+        <div class="personal-header"><a href="/personal/">&larr; Personal</a></div>
+<section class="personal-card" aria-labelledby="stats-heading">
+  <div class="personal-copy">
+    <h1 id="stats-heading">A little older, every second</h1>
+    <p>Enjoy it while you can 🥹</p>
   </div>
-  <aside class="col-lg-2 d-none d-lg-block">
-    <nav id="navbar-blog-year" class="nav nav-pills flex-column sticky-top blog-years" aria-label="Blog years">
-      
-      <a class="nav-link" href="#blog-year-2026">2026</a>
-      
-    </nav>
-  </aside>
+  <div class="age-tracker" data-birth-date="1999-01-28">
+  <div class="age-orbit">
+    <svg viewBox="0 0 240 240" aria-hidden="true">
+      <circle class="age-ring-track" cx="120" cy="120" r="105" />
+      <circle class="age-ring-progress" cx="120" cy="120" r="105" pathLength="100" />
+    </svg>
+    <div class="age-orbit-label"><span class="personal-eyebrow">Ali, you are</span><strong data-age="years">—</strong><span>years into the adventure</span></div>
+  </div>
+  <div class="age-details">
+    <div class="age-units" role="timer" aria-label="Age since January 28, 1999, measured in UTC">
+      <div><strong data-age="months">—</strong><span>months</span></div>
+      <div><strong data-age="days">—</strong><span>days</span></div>
+      <div><strong data-age="hours">—</strong><span>hours</span></div>
+      <div><strong data-age="minutes">—</strong><span>minutes</span></div>
+      <div><strong data-age="seconds">—</strong><span>seconds</span></div>
+    </div>
+    <p class="age-next"><span class="age-live-dot" aria-hidden="true"></span><span data-age="birthday">Another trip around the sun.</span></p>
+    <div class="age-milestones" role="img" aria-label="Completed years"></div>
+    <p class="small text-muted mb-0">One dot, one year lived. The glowing dot is this year.</p>
+    <noscript><p class="mt-3">Born January 28, 1999. Enable JavaScript to see the live age tracker.</p></noscript>
+  </div>
 </div>
+
+</section>
 
     </main>
     <footer class="footer flex-shrink-0 border-top py-2 mt-5 bg-white small">
