@@ -19,7 +19,7 @@ a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px soli
 .news-archive[open] .news-see-less { display: inline; }
 .background-item { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .75rem; }
 .background-logo { width: 2.5rem; height: 2.5rem; object-fit: contain; }
-.mentoring-item { display: grid; grid-template-columns: 1fr 2fr 2fr; gap: .35rem .75rem; align-items: baseline; }
+.mentoring-item { display: grid; grid-template-columns: 2fr 5fr 3fr; gap: .35rem .75rem; align-items: baseline; }
 .mentoring-item > * { min-width: 0; }
 @media (max-width: 767.98px) {
   .mentoring-item { display: block; }
