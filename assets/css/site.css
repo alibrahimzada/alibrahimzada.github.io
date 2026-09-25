@@ -19,7 +19,13 @@ a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px soli
 .news-archive[open] .news-see-less { display: inline; }
 .background-item { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .75rem; }
 .background-logo { width: 2.5rem; height: 2.5rem; object-fit: contain; }
-.mentoring-item { display: flex; flex-wrap: wrap; gap: .35rem .75rem; align-items: baseline; }
+.mentoring-item { display: grid; grid-template-columns: 1fr 2fr 2fr; gap: .35rem .75rem; align-items: baseline; }
+.mentoring-item > * { min-width: 0; }
+@media (max-width: 767.98px) {
+  .mentoring-item { display: block; }
+  .mentoring-item > * { display: block; }
+  .mentoring-item > * + * { margin-top: .2rem; }
+}
 ol.bibliography { list-style: none; padding: 0; margin: 0; }
 ol.bibliography > li + li { border-top: 1px solid #dee2e6; }
 .publication-link { display: inline; margin-right: .65rem; padding: 0; border: 0; color: #007bff; font-size: .875rem; text-decoration: none; }
@@ -54,6 +60,12 @@ body { position: relative; }
 .artifact-badges img { width: 64px; height: 64px; object-fit: contain; }
 .publication-content { min-width: 0; }
 .publication-content h3 { font-size: 1.25rem; }
+.publication-item { scroll-margin-top: 6rem; }
+.publication-item.is-targeted { animation: publication-target-highlight 2.5s ease-out; }
+@keyframes publication-target-highlight {
+  0%, 65% { background-color: #fff3cd; box-shadow: 0 0 0 .35rem rgba(0,123,255,.18); }
+  100% { background-color: transparent; box-shadow: 0 0 0 0 transparent; }
+}
 .equal-contribution { margin-left: .25rem; padding: .1rem .25rem; background-color: #fff3cd; color: inherit; font-size: .875em; font-style: italic; }
 .abstract-more summary { display: inline-block; padding: 0; border: 0; color: #007bff; cursor: pointer; font-size: .8rem; }
 .abstract-more summary .fa-caret-right { transition: transform .15s ease-in-out; }
@@ -75,4 +87,7 @@ body { position: relative; }
   .artifact-badges img { width: 48px; height: 48px; }
   .publication-content { padding-top: .75rem !important; }
   .publication-venue-line .badge-success { display: block; width: fit-content; max-width: calc(100% - .5rem); margin: .5rem .25rem 0; white-space: normal; text-align: center; line-height: 1.4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .publication-item.is-targeted { animation: none; background-color: #fff3cd; box-shadow: 0 0 0 .35rem rgba(0,123,255,.18); }
 }

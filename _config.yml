@@ -3,12 +3,8 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Ali Reza
-middle_name:
-last_name: Ibrahimzada
-email: alirezai@illinois.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  The official webpage of Ali Reza Ibrahimzada, Siebel School of Computing and Data Science, University of Illinois Urbana-Champaign
+  The official webpage of Ali Reza Ibrahimzada
 footer_text: >
 
 icon: # the emoji used as the favicon
@@ -41,25 +37,8 @@ max_width: 800px
 # Display links to the page with a preview object on social media.
 
 # -----------------------------------------------------------------------------
-# Social integration
+# Profile identity and social links live in _data/profile.yml.
 # -----------------------------------------------------------------------------
-
-github_username: alibrahimzada # your GitHub user name
-gitlab_username: # your GitLab user name
-twitter_username: alibrahimzada # your Twitter handle
-linkedin_username: alibrahimzada # your LinkedIn user name
-scholar_userid: 4cM2uQwAAAAJ&hl # your Google Scholar ID
-orcid_id: 0000-0002-3797-818X # your ORCID ID
-medium_username: # your Medium username
-quora_username: # your Quora username
-publons_id: # your ID on Publons
-research_gate_profile: Ali-Reza-Ibrahimzada # your profile on ResearchGate
-blogger_url: # your blogger URL
-work_url: # work page URL
-keybase_username: # your keybase user name
-wikidata_id: # your wikidata id
-dblp_url: # your DBLP profile url
-stackoverflow_id: #your stackoverflow id
 
 rss_icon: false
 

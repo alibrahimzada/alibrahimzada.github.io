@@ -28,3 +28,48 @@ body_attr: >-
     </nav>
   </aside>
 </div>
+
+<script>
+  window.addEventListener('load', function () {
+    if (!window.location.hash) return;
+
+    var hash = window.location.hash.slice(1);
+    var targetIds = hash === 'agentic'
+      ? ['ibrahimzada2026recodeagent', 'ibrahimzada2025matchfixagent']
+      : [hash];
+    var targets = targetIds
+      .map(function (id) { return document.getElementById(id); })
+      .filter(function (item) { return item && item.classList.contains('publication-item'); });
+    if (!targets.length) return;
+
+    var target = targets[0];
+
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo(0, 0);
+
+    if (reducedMotion) {
+      targets.forEach(function (item) { item.classList.add('is-targeted'); });
+      return;
+    }
+
+    var start = 0;
+    var destination = target.getBoundingClientRect().top - 96;
+    var duration = 850;
+    var startedAt;
+
+    function scrollToTarget(timestamp) {
+      if (!startedAt) startedAt = timestamp;
+      var progress = Math.min((timestamp - startedAt) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, start + (destination - start) * eased);
+
+      if (progress < 1) {
+        window.requestAnimationFrame(scrollToTarget);
+      } else {
+        targets.forEach(function (item) { item.classList.add('is-targeted'); });
+      }
+    }
+
+    window.requestAnimationFrame(scrollToTarget);
+  });
+</script>

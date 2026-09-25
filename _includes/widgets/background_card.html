@@ -1,7 +1,7 @@
 <div class="my-3 p-3 bg-white shadow-sm rounded-xl">
   <div class="row">
     <section class="col-lg-6" aria-labelledby="education-heading">
-      <h2 id="education-heading" class="h6 mb-3">Education</h2>
+      <h2 id="education-heading" class="h6 mb-3"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h2>
       <ul class="list-unstyled mb-0">
         {% for item in site.data.profile.education %}
         <li class="background-item mb-3">
@@ -9,7 +9,7 @@
           <div class="small">
             <div class="font-weight-bold">{{ item.institution }}</div>
             <div>{{ item.degree }}</div>
-            <div class="text-muted">{{ item.dates }}</div>
+            <div class="text-muted"><em>{{ item.dates }}</em></div>
           </div>
         </li>
         {% endfor %}
@@ -17,7 +17,7 @@
     </section>
     {% if page.work_experience %}
     <section class="col-lg-6" aria-labelledby="work-heading">
-      <h2 id="work-heading" class="h6 mb-3">Work Experience</h2>
+      <h2 id="work-heading" class="h6 mb-3"><i class="fas fa-briefcase" aria-hidden="true"></i> Work Experience</h2>
       <ul class="list-unstyled mb-0">
         {% for item in site.data.profile.work_experience %}
         <li class="background-item mb-3">
@@ -25,7 +25,7 @@
           <div class="small">
             <div class="font-weight-bold">{{ item.title }}</div>
             <div>{{ item.location }}</div>
-            <div class="text-muted">{{ item.dates }}</div>
+            <div class="text-muted"><em>{{ item.dates }}</em></div>
           </div>
         </li>
         {% endfor %}

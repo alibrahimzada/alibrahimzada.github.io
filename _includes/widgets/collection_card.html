@@ -1,5 +1,5 @@
 <section class="my-3 bg-white shadow-sm rounded-xl" aria-labelledby="heading-{{ include.title | slugify }}">
-  <h2 id="heading-{{ include.title | slugify }}" class="h6 p-3 mb-0 border-bottom">{{ include.title }}</h2>
+  <h2 id="heading-{{ include.title | slugify }}" class="h6 p-3 mb-0 border-bottom">{% if include.icon %}<i class="fas {{ include.icon }}" aria-hidden="true"></i> {% endif %}{{ include.title }}</h2>
   <div class="px-3 py-2 small">
     {% assign items = include.collection | reverse %}
     {% for item in items %}
