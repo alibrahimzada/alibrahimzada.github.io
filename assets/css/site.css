@@ -19,6 +19,7 @@ a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px soli
 .news-archive[open] .news-see-less { display: inline; }
 .background-item { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .75rem; }
 .background-logo { width: 2.5rem; height: 2.5rem; object-fit: contain; }
+.mentoring-item { display: flex; flex-wrap: wrap; gap: .35rem .75rem; align-items: baseline; }
 ol.bibliography { list-style: none; padding: 0; margin: 0; }
 ol.bibliography > li + li { border-top: 1px solid #dee2e6; }
 .publication-link { display: inline; margin-right: .65rem; padding: 0; border: 0; color: #007bff; font-size: .875rem; text-decoration: none; }

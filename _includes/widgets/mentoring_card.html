@@ -1,0 +1,12 @@
+<section class="my-3 bg-white shadow-sm rounded-xl" aria-labelledby="mentoring-heading">
+  <h2 id="mentoring-heading" class="h6 p-3 mb-0 border-bottom"><i class="fas fa-user-graduate" aria-hidden="true"></i> Mentoring</h2>
+  <ul class="list-unstyled px-3 py-2 mb-0 small">
+    {% for mentee in site.data.mentoring %}
+    <li class="mentoring-item py-2 {% unless forloop.last %}border-bottom{% endunless %}">
+      <strong><a href="{{ mentee.url }}" target="_blank" rel="noopener noreferrer">{{ mentee.name }}</a></strong>
+      <span class="text-muted">{{ mentee.mentored_at }} ({{ mentee.dates }})</span>
+      <span class="text-muted"><strong>Next:</strong> {{ mentee.organization }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

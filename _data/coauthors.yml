@@ -37,3 +37,27 @@
 "Dodds":
   - firstname: ["Joey"]
     url: https://www.amazon.science/author/joey-dodds
+
+"Ke":
+  - firstname: ["Kaiyao"]
+    url: https://kaiyaok2.github.io/
+
+"Pawagi":
+  - firstname: ["Mrigank"]
+    url: https://mrigank.in/
+
+"Abid":
+  - firstname: ["Muhammad Salman"]
+    url: https://msalman-abid.github.io/
+
+"Rong":
+  - firstname: ["Ryan"]
+    url: https://ryan-rong-24.github.io/
+
+"Merler":
+  - firstname: ["Michele"]
+    url: https://www.michelemerler.com/
+
+"Pavuluri":
+  - firstname: ["Raju"]
+    url: https://www.linkedin.com/in/raju-pavuluri/
