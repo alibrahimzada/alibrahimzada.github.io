@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# Refresh GitHub star counts using the repository's local Bundler environment.
+
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+RUBY_CANDIDATES=()
+if [[ -n "${RUBY_BIN:-}" ]]; then
+  RUBY_CANDIDATES+=("${RUBY_BIN}/ruby")
+fi
+if command -v ruby >/dev/null 2>&1; then
+  RUBY_CANDIDATES+=("$(command -v ruby)")
+fi
+if command -v brew >/dev/null 2>&1; then
+  if homebrew_prefix="$(brew --prefix 2>/dev/null)"; then
+    shopt -s nullglob
+    RUBY_CANDIDATES+=("${homebrew_prefix}"/Library/Homebrew/vendor/portable-ruby/*/bin/ruby)
+    shopt -u nullglob
+  fi
+  if homebrew_repository="$(brew --repository 2>/dev/null)"; then
+    shopt -s nullglob
+    RUBY_CANDIDATES+=("${homebrew_repository}"/Library/Homebrew/vendor/portable-ruby/*/bin/ruby)
+    shopt -u nullglob
+  fi
+  if ruby_prefix="$(brew --prefix ruby 2>/dev/null)"; then
+    RUBY_CANDIDATES+=("${ruby_prefix}/bin/ruby")
+  fi
+fi
+RUBY_CANDIDATES+=(/opt/homebrew/opt/ruby/bin/ruby /usr/local/opt/ruby/bin/ruby)
+
+RUBY=""
+for candidate in "${RUBY_CANDIDATES[@]}"; do
+  if [[ -x "$candidate" ]] && "$candidate" -e 'exit(RUBY_VERSION.to_f >= 3.0 ? 0 : 1)' 2>/dev/null; then
+    RUBY="$candidate"
+    break
+  fi
+done
+
+if [[ -z "$RUBY" ]]; then
+  echo "A compatible Ruby (3.0 or newer) was not found." >&2
+  echo "Install Ruby 3+ or set RUBY_BIN to the Ruby bin directory." >&2
+  exit 1
+fi
+
+export PATH="$(dirname "$RUBY"):$PATH"
+export BUNDLE_PATH="${ROOT}/vendor/bundle"
+export RUBYOPT="${RUBYOPT:+${RUBYOPT} }-EUTF-8"
+BUNDLE=("$RUBY" -S bundle)
+
+if ! "${BUNDLE[@]}" --version >/dev/null 2>&1; then
+  echo "Bundler was not found for ${RUBY}. Install Bundler, then try again." >&2
+  exit 1
+fi
+
+if ! "${BUNDLE[@]}" check >/dev/null 2>&1; then
+  "${BUNDLE[@]}" install --jobs "${BUNDLE_JOBS:-4}" --retry "${BUNDLE_RETRY:-3}"
+fi
+
+exec "${BUNDLE[@]}" exec ruby bin/update-github-stars "$@"

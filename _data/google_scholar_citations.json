@@ -17,12 +17,6 @@
     "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=4cM2uQwAAAAJ&pagesize=100&citation_for_view=4cM2uQwAAAAJ:YOwf2qJgpHMC",
     "checked": "2026-09-30"
   },
-  "ibrahimzada2025matchfixagent": {
-    "title": "Matchfixagent: Language-agnostic autonomous repository-level code translation validation and repair",
-    "count": 11,
-    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=4cM2uQwAAAAJ&pagesize=100&citation_for_view=4cM2uQwAAAAJ:4TOpqqG69KYC",
-    "checked": "2026-09-30"
-  },
   "ibrahimzada2024alphatrans": {
     "title": "AlphaTrans: A Neuro-Symbolic Compositional Approach for Repository-Level Code Translation and Validation",
     "count": 104,
@@ -81,6 +75,12 @@
     "title": "Scalable Classification of Organisms into a Taxonomy Using Hierarchical Supervised Learners",
     "count": 7,
     "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=4cM2uQwAAAAJ&pagesize=100&citation_for_view=4cM2uQwAAAAJ:u5HHmVD_uO8C",
+    "checked": "2026-09-30"
+  },
+  "ibrahimzada2026matchfixagent": {
+    "title": "Matchfixagent: Language-agnostic autonomous repository-level code translation validation and repair",
+    "count": 11,
+    "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=4cM2uQwAAAAJ&pagesize=100&citation_for_view=4cM2uQwAAAAJ:4TOpqqG69KYC",
     "checked": "2026-09-30"
   }
 }

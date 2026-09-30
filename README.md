@@ -70,7 +70,7 @@ Publication cards also display saved GitHub star counts for repositories listed
 in each paper's `code` field. Refresh them before building or deploying:
 
 ```sh
-bundle exec ruby bin/update-github-stars
+bin/update-github-stars-local
 ```
 
 The updater reads the public profile in `_data/profile.yml` and matches exact
