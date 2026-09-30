@@ -6,21 +6,18 @@ deployment configuration live in this repository.
 
 ## Preview locally
 
-On this Mac, use the existing Ruby/native-dependency launcher:
+Install Ruby 3.0 or newer first. Homebrew users can run `brew install ruby`;
+Ruby installed through rbenv, mise, or another version manager also works.
+Then run the portable launcher from the repository root:
 
 ```sh
-RUBYOPT=-EUTF-8 ./run.sh
+./run.sh
 ```
 
-Then open http://localhost:4000. The UTF-8 option supports the bibliography's
-Unicode characters even when the shell has no UTF-8 locale.
-
-On another machine with Ruby and the existing Gemfile's native prerequisites:
-
-```sh
-bundle install
-RUBYOPT=-EUTF-8 bundle exec jekyll serve
-```
+The launcher detects Ruby on both Intel and Apple Silicon Macs, installs gems
+into the project-local `vendor/bundle` directory when needed, and starts the
+site at http://localhost:4000. It also enables UTF-8 handling for bibliography
+and talk metadata.
 
 ## Edit content
 
