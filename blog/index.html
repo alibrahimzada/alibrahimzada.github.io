@@ -1,36 +1,140 @@
----
-layout: default
-title: Blog
-navbar_title: Blog
-permalink: /blog/
-body_attr: >-
-  data-spy="scroll" data-target="#navbar-blog-year" data-offset="100"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blog - Ali Reza Ibrahimzada</title>
 
-{% assign blogs_by_year = site.blogs | sort: 'date' | reverse | group_by_exp: 'item', "item.date | date: '%Y'" %}
+    <meta name="description" content="The official webpage of Ali Reza Ibrahimzada">
+    <link rel="canonical" href="https://alirezai.cs.illinois.edu//blog/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ali Reza Ibrahimzada">
+    <meta property="og:description" content="The official webpage of Ali Reza Ibrahimzada">
+    <meta property="og:url" content="https://alirezai.cs.illinois.edu//blog/">
+    <meta property="og:site_name" content="Ali Reza Ibrahimzada">
+    <meta property="og:image" content="https://alirezai.cs.illinois.edu//assets/img/illinois.jpg">
+    <meta property="og:image:secure_url" content="https://alirezai.cs.illinois.edu//assets/img/illinois.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="186">
+    <meta property="og:image:height" content="186">
+    <meta property="og:image:alt" content="University of Illinois Urbana-Champaign orange Block I logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ali Reza Ibrahimzada">
+    <meta name="twitter:description" content="The official webpage of Ali Reza Ibrahimzada">
+    <meta name="twitter:image" content="https://alirezai.cs.illinois.edu//assets/img/illinois.jpg">
+    <meta name="twitter:image:alt" content="University of Illinois Urbana-Champaign orange Block I logo">
+    <link rel="icon" href="/assets/img/favicon.ico">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/github.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    
+</head>
+<body class="bg-light d-flex flex-column min-vh-100" data-spy="scroll" data-target="#navbar-blog-year" data-offset="100">
+    <nav class="navbar navbar-expand-sm navbar-light fixed-top mb-5 shadow-sm">
+    <div class="container-lg">
+        <a class="navbar-brand" href="/"><strong>Ali Reza Ibrahimzada</strong></a>
+        <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-map"></i> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item ">
+                    <a class="nav-link"  href="/">Home</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link"  href="/publications/">Publications</a>
+                </li>
+                
+                <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" href="/blog/">Blog</a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link"  href="/personal/">Personal</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <main id="main-content" class="flex-grow-1 flex-shrink-0 container-lg">
+        
 <h1 class="h3 mb-4">Blog</h1>
 <div class="row">
   <div class="col-lg-10">
-    {% for year in blogs_by_year %}
-    <section class="mb-4" aria-labelledby="blog-year-{{ year.name }}">
-      <h2 id="blog-year-{{ year.name }}" class="h4 mb-3">{{ year.name }}</h2>
+    
+    <section class="mb-4" aria-labelledby="blog-year-2026">
+      <h2 id="blog-year-2026" class="h4 mb-3">2026</h2>
       <div class="bg-white shadow-sm rounded-xl">
-        {% for post in year.items %}
-        <article class="p-4 {% unless forloop.last %}border-bottom{% endunless %}">
-          <h3 class="h5 mb-2"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-          {% if post.description %}<p class="mb-2">{{ post.description }}</p>{% endif %}
-          <time class="small text-muted" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y' }}</time>
+        
+        <article class="p-4 ">
+          <h3 class="h5 mb-2"><a href="/blog/2026/coming-soon/">Coming soon</a></h3>
+          <p class="mb-2">My first blog post is coming soon.</p>
+          <time class="small text-muted" datetime="2026-09-21">Sep 21, 2026</time>
         </article>
-        {% endfor %}
+        
       </div>
     </section>
-    {% endfor %}
+    
   </div>
   <aside class="col-lg-2 d-none d-lg-block">
     <nav id="navbar-blog-year" class="nav nav-pills flex-column sticky-top blog-years" aria-label="Blog years">
-      {% for year in blogs_by_year %}
-      <a class="nav-link" href="#blog-year-{{ year.name }}">{{ year.name }}</a>
-      {% endfor %}
+      
+      <a class="nav-link" href="#blog-year-2026">2026</a>
+      
     </nav>
   </aside>
 </div>
+
+    </main>
+    <footer class="footer flex-shrink-0 border-top py-2 mt-5 bg-white small">
+    <div class="container-lg">
+        <div class="row my-3">
+            <div class="col-6">
+                <div class="text-muted">
+                    <i>Last updated: Oct 2026</i>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="text-right text-muted">
+                    <i>&copy; 2026 Ali Reza Ibrahimzada</i>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <script defer src="/assets/js/bibtex.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false}
+              ],
+              throwOnError : false
+            });
+        });
+    </script>
+</body>
+</html>
