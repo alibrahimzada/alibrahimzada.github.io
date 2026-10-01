@@ -7,6 +7,40 @@ a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px soli
 .skip-link:focus { top: .5rem; }
 .figure-img { border-radius: .5rem; }
 .email-text { font-size: .8rem; overflow-wrap: anywhere; }
+.cv-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  min-height: 44px;
+  margin-top: .5rem;
+  padding: .7rem 1.1rem;
+  border: 1px solid #13294b;
+  border-radius: .65rem;
+  background: #13294b;
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(19, 41, 75, .14);
+  transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.cv-button-icon { color: #ff9c75; font-size: 1.05rem; }
+.cv-button-arrow { margin-left: .25rem; font-size: .75rem; opacity: .75; }
+.cv-button:hover, .cv-button:focus-visible {
+  background: #203e68;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 5px 12px rgba(19, 41, 75, .2);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cv-button:hover { transform: translateY(-1px); }
+}
+.cv-button:active { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .cv-button { transition: none; }
+  .cv-button:hover { transform: none; }
+}
 .news-year-group { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1rem; }
 .news-year-group + .news-year-group { border-top: 1px solid #dee2e6; }
 .news-item { display: grid; grid-template-columns: minmax(0, 1fr) 3.5rem; gap: .75rem; }

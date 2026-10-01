@@ -35,7 +35,7 @@ body_attr: >-
 
     var hash = window.location.hash.slice(1);
     var targetIds = hash === 'agentic'
-      ? ['ibrahimzada2026recodeagent', 'ibrahimzada2025matchfixagent']
+      ? ['ibrahimzada2026recodeagent', 'ibrahimzada2026matchfixagent']
       : [hash];
     var targets = targetIds
       .map(function (id) { return document.getElementById(id); })
