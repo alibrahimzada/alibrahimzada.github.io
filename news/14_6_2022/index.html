@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Page not found - Ali Reza Ibrahimzada</title>
+    <title>SEER accepted at ESEC/FSE 2022 - Ali Reza Ibrahimzada</title>
 
     <meta name="description" content="The official webpage of Ali Reza Ibrahimzada">
-    <link rel="canonical" href="https://alirezai.cs.illinois.edu//404.html">
+    <link rel="canonical" href="https://alirezai.cs.illinois.edu//news/14_6_2022/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ali Reza Ibrahimzada">
     <meta property="og:description" content="The official webpage of Ali Reza Ibrahimzada">
-    <meta property="og:url" content="https://alirezai.cs.illinois.edu//404.html">
+    <meta property="og:url" content="https://alirezai.cs.illinois.edu//news/14_6_2022/">
     <meta property="og:site_name" content="Ali Reza Ibrahimzada">
     <meta property="og:image" content="https://alirezai.cs.illinois.edu//assets/img/illinois.jpg">
     <meta property="og:image:secure_url" content="https://alirezai.cs.illinois.edu//assets/img/illinois.jpg">
@@ -71,22 +71,34 @@
 
     <a class="skip-link" href="#main-content">Skip to content</a>
     <main id="main-content" class="flex-grow-1 flex-shrink-0 container-lg">
-        <div class="post">
+        
+
+
+
+
+
+<div class="post">
 
   <header class="post-header">
-    <h1 class="post-title" style="font-weight: bold;">Page not found</h1>
-    <p class="post-description">Looks like there has been a mistake. Nothing exists here.</p>
+    <h1 class="post-title">SEER accepted at ESEC/FSE 2022</h1>
+    <p class="post-meta">June 14, 2022</p>
+    <p class="post-tags">
+      
+      <a href="/news/2022/"> <i class="fas fa-calendar fa-sm"></i> 2022 </a>
+      
+      
+
+      
+
+    </p>
   </header>
 
-  <article>
-    <div class="text-center">
-  <p class="display-4 text-muted mb-3" aria-hidden="true">404</p>
-  <p class="mb-4">The page you’re looking for may have moved or no longer exists.</p>
-  <div class="d-flex flex-wrap justify-content-center align-items-center">
-    <a class="btn btn-primary m-1" href="/">Back to homepage</a>
-    <a class="btn btn-outline-primary m-1" href="/publications/">Browse publications</a>
-  </div>
-</div>
+  <article class="post-content">
+    <p>I’m excited to announce that our paper “Perfect is The Enemy of Test Oracle” is accepted at <a href="https://2022.esec-fse.org/" target="_blank" rel="noopener noreferrer">The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)</a>. Joint work with Dr. Reyhaneh Jabbarvand, Yigit Varli, and Dilara Tekinoglu.</p>
+
+<hr />
+
+<p>Automation of test oracles is one of the most challenging facets of software testing, but remains comparatively less addressed compared to automated test input generation. Test oracles rely on a ground-truth that can distinguish between the correct and buggy behavior to determine whether a test fails (detects a bug) or passes. What makes the oracle problem challenging and undecidable is the assumption that the ground-truth should know the exact expected, correct or buggy behavior. However, we argue that one can still build an accurate oracle without knowing the exact correct or buggy behavior, but how these two might differ. This paper presents SEER, a Deep Learning-based approach that in the absence of test assertions or other types of oracle, can automatically determine whether a unit test passes or fails on a given method under test (MUT). To build the ground-truth, SEER jointly embeds unit tests and the implementation of MUTs into a unified vector space, in such a way that the neural representation of tests are similar to that of MUTs they pass on them, but dissimilar to MUTs they fail on them. The classifier built on top of this vector representation serves as the oracle to generate “fail” labels, when test inputs detect a bug in MUT or “pass” labels, otherwise. Our extensive experiments on applying SEER to more than 5K unit tests from a diverse set of opensource Java projects show that the produced oracle is (1) effective in predicting the fail or pass labels, achieving an overall accuracy, precision, recall, and F1 measure of 93%, 86%, 94%, and 90%, (2) generalizable, predicting the labels for the unit test of projects that were not in training or validation set with negligible performance drop, and (3) efficient, detecting the existence of bugs in only 6.5 milliseconds on average. Moreover, by interpreting the proposed neural model and looking at it beyond a closed-box solution, we confirm that the oracle is valid, i.e., it predicts the labels through learning relevant features.</p>
 
   </article>
 
