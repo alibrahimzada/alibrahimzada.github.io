@@ -1,9 +1,0 @@
-pages:
-  - name: Home
-    url: /
-  - name: Publications
-    url: /publications/
-  - name: Blog
-    url: /blog/
-  - name: Personal
-    url: /personal/
