@@ -83,6 +83,15 @@ jobs:
         echo "SRC_BRANCH=$SOURCE_BRANCH" >> "$GITHUB_OUTPUT"
         echo "DEPLOY_BRANCH=gh-pages" >> "$GITHUB_OUTPUT"
 
+    # bin/deploy requires a clean checkout. Commit the generated PDF locally
+    # so it is included in the deploy branch without pushing it to the source.
+    - name: Stage generated CV PDF
+      run: |
+        git add assets/pdf/cv.pdf
+        if ! git diff --cached --quiet; then
+          git commit -m "Build CV PDF [skip ci]"
+        fi
+
     - name: Deploy website
       env:
         SOURCE_BRANCH: ${{ steps.setup.outputs.SRC_BRANCH }}
