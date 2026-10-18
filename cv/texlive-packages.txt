@@ -1,0 +1,24 @@
+# TeX Live packages needed to compile main.tex with pdfLaTeX and Biber.
+# Dependencies of these packages are installed automatically by tlmgr.
+biber
+babel-english
+biblatex
+biblatex-ieee
+cabin
+cochineal
+comment
+csquotes
+curve
+enumitem
+fontaxes
+fontawesome5
+geometry
+inconsolata
+latexmk
+pgf
+relsize
+silence
+simpleicons
+xcolor
+xpatch
+xstring
