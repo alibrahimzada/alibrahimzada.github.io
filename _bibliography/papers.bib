@@ -1,3 +1,17 @@
+@inproceedings{ke2027mockingbird,
+  title={MockingBird: Context-aware Repository-level Code Translation with Isolated Validation},
+  author={Ke, Kaiyao and Ibrahimzada, Ali Reza and Pan, Rangeet and Sinha, Saurabh and Jabbarvand, Reyhaneh},
+  booktitle = {In Proceedings of the 49th IEEE/ACM International Conference on Software Engineering (ICSE'27), April 25-May 1, 2027, Dublin, Ireland},
+  year={2027},
+  URL={https://arxiv.org/abs/2511.21878},
+  abstract = {Repository-level code translation aims to migrate entire repositories across programming languages while preserving functionality automatically. Despite advancements in repository-level code translation, validating the translations remains challenging. This paper proposes TRAM, which combines context-aware type resolution with mock-based in-isolation validation to achieve high-quality translations between programming languages. Prior to translation, TRAM retrieves API documentation and contextual code information for each variable type in the source language. It then prompts a large language model (LLM) with retrieved contextual information to resolve type mappings across languages with precise semantic interpretations. Using the automatically constructed type mapping, TRAM employs a custom serialization/deserialization workflow that automatically constructs equivalent mock objects in the target language. This enables each method fragment to be validated in isolation, without the high cost of using agents for translation validation, or the heavy manual effort required by existing approaches that rely on language interoperability. TRAM demonstrates state-of-the-art performance in Java-to-Python translation, underscoring the effectiveness of its integration of RAG-based type resolution with reliable in-isolation validation.},
+  selected = {true},
+  abbr = {ICSE'27},
+  month = oct,
+  arxiv = {2511.21878},
+  pdf = {tram.pdf},
+  bib = {ke2027mockingbird}
+}
 
 @article{ibrahimzada2026recodeagent,
   title = {ReCodeAgent: A Multi-agent Workflow for Language-Agnostic Translation and Validation of Large-Scale Repositories},
@@ -61,19 +75,6 @@
 	pdf = {predictinggrades.pdf},
 	code = {https://github.com/itu-bioinformatics-database-lab/Predicting-Student-Grades-in-Courses},
 	bib = {ibrahimzada2026predicting}
-}
-
-@article{ke2025advancing,
-	title={Advancing Automated In-Isolation Validation in Repository-Level Code Translation},
-	author={Ke, Kaiyao and Ibrahimzada, Ali Reza and Pan, Rangeet and Sinha, Saurabh and Jabbarvand, Reyhaneh},
-	journal={arXiv preprint arXiv:2511.21878},
-	year={2025},
-	abstract = {Repository-level code translation aims to migrate entire repositories across programming languages while preserving functionality automatically. Despite advancements in repository-level code translation, validating the translations remains challenging. This paper proposes TRAM, which combines context-aware type resolution with mock-based in-isolation validation to achieve high-quality translations between programming languages. Prior to translation, TRAM retrieves API documentation and contextual code information for each variable type in the source language. It then prompts a large language model (LLM) with retrieved contextual information to resolve type mappings across languages with precise semantic interpretations. Using the automatically constructed type mapping, TRAM employs a custom serialization/deserialization workflow that automatically constructs equivalent mock objects in the target language. This enables each method fragment to be validated in isolation, without the high cost of using agents for translation validation, or the heavy manual effort required by existing approaches that rely on language interoperability. TRAM demonstrates state-of-the-art performance in Java-to-Python translation, underscoring the effectiveness of its integration of RAG-based type resolution with reliable in-isolation validation.},
-	abbr = {pre-print},
-	month = nov,
-	arxiv = {2511.21878},
-	pdf = {tram.pdf},
-	bib = {ke2025advancing}
 }
 
 @article{ibrahimzada2024alphatrans,

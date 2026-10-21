@@ -4,7 +4,7 @@ permalink: /publications/
 title: Publications
 navbar_title: Publications
 description: 
-years_pub: [2026,2025,2024,2023,2022,2020,2019]
+years_pub: [2027,2026,2025,2024,2023,2022,2020,2019]
 nav: true
 body_attr: >-
   data-spy="scroll" data-target="#navbar-year" data-offset="100"
